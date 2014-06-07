@@ -8,6 +8,7 @@
 
 #import "MTPConverter.h"
 #import "MMMarkdown.h"
+#import "MTPFileManager.h"
 
 static NSString *const MTPCodeScannerToken = @"```";
 static NSString *const MTPCodePlaceholder = @"{{{mkdtoplg}}}";
@@ -27,8 +28,7 @@ static NSString *const MTPCodePlaceholder = @"{{{mkdtoplg}}}";
         if (mkdown) {
             [scanner scanString:MTPCodeScannerToken intoString:NULL];
             NSString *html = [MMMarkdown HTMLStringWithMarkdown:mkdown error:NULL];
-#warning skipping wraping
-            //html = [self wrapHTML:html];
+            html = [self wrapHTML:html];
             if (html) {
                 NSString *key = [NSString stringWithFormat:@"%ld-mkdtoplg.html", index];
                 result[key] = html;
@@ -61,15 +61,7 @@ static NSString *const MTPCodePlaceholder = @"{{{mkdtoplg}}}";
     static NSString *_htmlFormat;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        NSString *bundlePath = [[NSBundle mainBundle] executablePath];
-       // NSString *docPath = [bundlePath stringByAppendingPathComponent:@"src"];
-        NSURL *url = [NSURL fileURLWithPath:[bundlePath stringByAppendingPathComponent:@"snippet_format.html"]];
-        NSError *error;
-        _htmlFormat = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-        if (error) {
-            NSLog(@"Error occurred while trying to open resource: %@", error.debugDescription);
-        }
+        _htmlFormat = [NSString stringWithContentsOfURL:[MTPFileManager fileURLForResourceName:@"snippet_format.html"] encoding:NSUTF8StringEncoding error:NULL];
     });
     
     return [_htmlFormat stringByReplacingOccurrencesOfString:MTPCodePlaceholder withString:html];

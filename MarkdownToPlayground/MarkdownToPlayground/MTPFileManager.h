@@ -18,4 +18,6 @@
 
 - (void)outputPlaygroundWith:(NSDictionary *)content;
 
++ (NSURL *)fileURLForResourceName:(NSString *)name;
+
 @end

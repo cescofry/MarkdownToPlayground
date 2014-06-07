@@ -19,6 +19,7 @@ int main(int argc, const char * argv[])
         
         if (arguments.count < 2) {
             NSLog(@"Missing makrdown file");
+            return 1;
         }
         
         MTPFileManager *fileManager = [[MTPFileManager alloc] initWithFileAtPath:arguments[1]];

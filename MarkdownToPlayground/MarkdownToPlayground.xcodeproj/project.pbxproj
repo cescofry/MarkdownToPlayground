@@ -21,17 +21,19 @@
 		A5E4F0B71942FF5D00069D2F /* MTPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */; };
 		A5E4F0CD19430FE300069D2F /* contents_format.xcplayground in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C719430FD000069D2F /* contents_format.xcplayground */; };
 		A5E4F0CE19430FE300069D2F /* snippet_format.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C819430FD000069D2F /* snippet_format.html */; };
+		A5E4F0CF19431BD700069D2F /* MarkdownToPlayground.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A5E4F0821942F90000069D2F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
-			dstSubfolderSpec = 0;
+			dstSubfolderSpec = 16;
 			files = (
 				A5E4F0CD19430FE300069D2F /* contents_format.xcplayground in CopyFiles */,
 				A5E4F0CE19430FE300069D2F /* snippet_format.html in CopyFiles */,
+				A5E4F0CF19431BD700069D2F /* MarkdownToPlayground.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};

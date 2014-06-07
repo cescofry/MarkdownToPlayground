@@ -36,4 +36,27 @@
     
 }
 
+
+#pragma mark - Resources URL
+
++ (NSURL *)fileURLForResourceName:(NSString *)name
+{
+    
+    NSString *path = [[NSBundle mainBundle] executablePath];
+    path = [path stringByDeletingLastPathComponent];
+    path = [path stringByAppendingPathComponent:@"src"];
+    
+    path = [path stringByAppendingPathComponent:name];
+    
+    NSURL *url = [NSURL fileURLWithPath:path];
+    
+    NSError *error;
+    [url checkResourceIsReachableAndReturnError:&error];
+    if (error) {
+        NSLog(@"Error occurred while trying to open resource: %@", error.debugDescription);
+    }
+    
+    return url;
+}
+
 @end
