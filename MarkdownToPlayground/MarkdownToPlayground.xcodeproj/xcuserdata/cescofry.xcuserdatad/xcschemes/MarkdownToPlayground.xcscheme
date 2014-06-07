@@ -60,11 +60,15 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "/Users/cescofry/Dev/iPhoneApps/test/MarkdownToPlayground/test/test.md"
-            isEnabled = "YES">
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o /asd/asd/"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "testName"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

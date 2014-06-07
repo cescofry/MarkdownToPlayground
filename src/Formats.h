@@ -9,6 +9,17 @@
 #ifndef MarkdownToPlayground_Formats_h
 #define MarkdownToPlayground_Formats_h
 
+#define HTML_RESOURCE_FORMAT @"<documentation relative-path='%@'/>"
+#define SWIFT_RESOURCE_FORMAT @"<code source-file-name='%@'/>"
+
+#define PLAYGROUND_FORMAT @"<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n\
+<playground version='1.0' sdk='macosx' allows-reset='yes'>\n\
+<sections>\n\
+%@\n\
+</sections>\n\
+</playground>\n"
+
+
 #define HTML_FORMAT @"<!DOCTYPE html>\
 <html lang=\"en\">\
 <head>\
@@ -31,14 +42,10 @@
 </body>\
 </html>"
 
-#define PLAYGROUND_FORMAT @"<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\
-<playground version='1.0' sdk='macosx' allows-reset='yes'>\
-<sections>\
-%@\
-</sections>\
-</playground>"
 
-#define HTML_RESOURCE_FORMAT @"<documentation relative-path='%@'/>"
-#define SWIFT_RESOURCE_FORMAT @"<code source-file-name='%@'/>"
+#define CSS_FORMAT @""
+
+
+#define HELPER @"Usage: mkdtoplg <fileName.md> [-o <outputPath>]"
 
 #endif

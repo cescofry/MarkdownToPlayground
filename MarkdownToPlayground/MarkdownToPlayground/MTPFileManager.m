@@ -18,12 +18,18 @@
 
 @implementation MTPFileManager
 
-- (instancetype)initWithFileAtPath:(NSString *)path
+- (instancetype)initWithMarkdownFile:(NSString *)markdown userPath:(NSString *)path;
 {
     self = [super init];
     if (self) {
-        _filePath = path;
-        _fileName = [[_filePath.lastPathComponent stringByReplacingOccurrencesOfString:[_filePath pathExtension] withString:@""] stringByAppendingPathExtension:@"playground"];
+        _userPath = path;
+        
+        if ([markdown hasPrefix:@"/"] || [markdown hasPrefix:@"~"]) {
+            _filePath = markdown;
+        }
+        else {
+            _filePath = [self.userPath stringByAppendingPathComponent:markdown];
+        }
     }
     return self;
 }
@@ -42,7 +48,7 @@
 - (NSString *)fileName
 {
     if (!_fileName) {
-        _fileName = [self.filePath.lastPathComponent stringByReplacingOccurrencesOfString:[_filePath pathExtension] withString:@""];
+        _fileName = [self.filePath.lastPathComponent stringByDeletingPathExtension];
     }
     
     return _fileName;
@@ -51,7 +57,7 @@
 - (NSString *)playgroundPath
 {
     // filePath/../fileName.playground
-    return [[[self.filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:self.fileName] stringByAppendingPathExtension:@"playground"];
+    return [[[self.userPath stringByDeletingLastPathComponent] stringByAppendingPathComponent:self.fileName] stringByAppendingPathExtension:@"playground"];
 }
 
 - (NSString *)documentationPath

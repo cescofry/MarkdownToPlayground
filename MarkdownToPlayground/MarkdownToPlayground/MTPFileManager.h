@@ -12,9 +12,10 @@
 
 @property (nonatomic, strong) NSString *fileName;
 @property (nonatomic, strong, readonly) NSString *filePath;
+@property (nonatomic, strong, readonly) NSString *userPath;
 @property (nonatomic, strong, readonly) NSString *markdown;
 
-- (instancetype)initWithFileAtPath:(NSString *)path;
+- (instancetype)initWithMarkdownFile:(NSString *)markdown userPath:(NSString *)path;
 
 - (void)outputPlaygroundWith:(NSDictionary *)content;
 
