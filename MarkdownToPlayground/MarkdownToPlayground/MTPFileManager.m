@@ -72,6 +72,9 @@
     // This will crate both the playgorund directory and the Documentation one at the same time
     NSError *error;
     BOOL created = [[NSFileManager defaultManager] createDirectoryAtPath:[self documentationPath] withIntermediateDirectories:YES attributes:nil error:&error];
+    if (error) {
+        NSLog(@"Error while creating playgorund file: %@", error.description);
+    }
     return (created && !error);
 }
 
@@ -103,6 +106,9 @@
     [playgroundContent writeToFile:contentFilePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (error) {
         NSLog(@"Error while writing to file: %@", error.description);
+    }
+    else {
+        NSLog(@"Playgorund Documentation created at %@", self.playgroundPath);
     }
 }
 

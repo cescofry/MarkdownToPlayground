@@ -22,6 +22,7 @@
 		A5E4F0CD19430FE300069D2F /* contents_format.xcplayground in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C719430FD000069D2F /* contents_format.xcplayground */; };
 		A5E4F0CE19430FE300069D2F /* snippet_format.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C819430FD000069D2F /* snippet_format.html */; };
 		A5E4F0CF19431BD700069D2F /* MarkdownToPlayground.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */; };
+		A5E4F0D619433E0500069D2F /* ZFRProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0D519433E0500069D2F /* ZFRProcessInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +73,8 @@
 		A5E4F0CA19430FD000069D2F /* contents.xcplayground */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = contents.xcplayground; sourceTree = "<group>"; };
 		A5E4F0CC19430FD000069D2F /* Results.playgrounddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = Results.playgrounddata; sourceTree = "<group>"; };
 		A5E4F0D3194322E400069D2F /* Formats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Formats.h; sourceTree = "<group>"; };
+		A5E4F0D419433E0500069D2F /* ZFRProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFRProcessInfo.h; sourceTree = "<group>"; };
+		A5E4F0D519433E0500069D2F /* ZFRProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFRProcessInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 			children = (
 				A5E4F09A1942FA8F00069D2F /* MMMarkdown */,
 				A5E4F08A1942F90000069D2F /* main.m */,
+				A5E4F0D419433E0500069D2F /* ZFRProcessInfo.h */,
+				A5E4F0D519433E0500069D2F /* ZFRProcessInfo.m */,
 				A5E4F0961942F97500069D2F /* MTPConverter.h */,
 				A5E4F0971942F97500069D2F /* MTPConverter.m */,
 				A5E4F0B51942FF5D00069D2F /* MTPFileManager.h */,
@@ -245,6 +250,7 @@
 				A5E4F0B01942FA8F00069D2F /* MMHTMLParser.m in Sources */,
 				A5E4F0B31942FA8F00069D2F /* MMScanner.m in Sources */,
 				A5E4F0AF1942FA8F00069D2F /* MMGenerator.m in Sources */,
+				A5E4F0D619433E0500069D2F /* ZFRProcessInfo.m in Sources */,
 				A5E4F08B1942F90000069D2F /* main.m in Sources */,
 				A5E4F0B21942FA8F00069D2F /* MMParser.m in Sources */,
 				A5E4F0B41942FA8F00069D2F /* MMSpanParser.m in Sources */,

@@ -10,21 +10,30 @@
 #import "MTPConverter.h"
 #import "MTPFileManager.h"
 #import "Formats.h"
+#import "ZFRProcessInfo.h"
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
         
-        NSArray *arguments = [[NSProcessInfo processInfo] arguments];
-        NSDictionary *environment = [[NSProcessInfo processInfo] environment];
-        if (arguments.count < 2) {
+        NSDictionary *env = [ZFRProcessInfo processInfo];
+        
+        if (!env[@"0"]) {
             NSLog(@"Missing makrdown file");
             NSLog(@"%@", HELPER);
             return 1;
         }
         
-        MTPFileManager *fileManager = [[MTPFileManager alloc] initWithMarkdownFile:arguments[1] userPath:environment[@"PWD"]];
+        if (env[@"help"]) {
+            NSLog(@"%@", HELPER);
+            return 0;
+        }
+        
+        NSString *markdownFile = env[@"0"];
+        NSString *userPath = env[@"PWD"];
+        
+        MTPFileManager *fileManager = [[MTPFileManager alloc] initWithMarkdownFile:markdownFile userPath:userPath];
         NSDictionary *contents = [MTPConverter htmlFromMarkdown:fileManager.markdown];
         [fileManager outputPlaygroundWith:contents];
         
