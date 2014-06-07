@@ -7,6 +7,14 @@
 //
 
 #import "MTPFileManager.h"
+#import "Formats.h"
+
+@interface MTPFileManager ()
+
+@property (nonatomic, strong, readonly) NSString *playgroundPath;
+@property (nonatomic, strong, readonly) NSString *documentationPath;
+
+@end
 
 @implementation MTPFileManager
 
@@ -15,7 +23,7 @@
     self = [super init];
     if (self) {
         _filePath = path;
-        _fileName = [_filePath.lastPathComponent stringByReplacingOccurrencesOfString:[_filePath pathExtension] withString:@""];
+        _fileName = [[_filePath.lastPathComponent stringByReplacingOccurrencesOfString:[_filePath pathExtension] withString:@""] stringByAppendingPathExtension:@"playground"];
     }
     return self;
 }
@@ -31,9 +39,65 @@
     return result;
 }
 
+- (NSString *)fileName
+{
+    if (!_fileName) {
+        _fileName = [self.filePath.lastPathComponent stringByReplacingOccurrencesOfString:[_filePath pathExtension] withString:@""];
+    }
+    
+    return _fileName;
+}
+
+- (NSString *)playgroundPath
+{
+    // filePath/../fileName.playground
+    return [[[self.filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:self.fileName] stringByAppendingPathExtension:@"playground"];
+}
+
+- (NSString *)documentationPath
+{
+    return [self.playgroundPath stringByAppendingPathComponent:@"Documentation"];
+}
+
+#pragma mark crete playgound
+
+- (BOOL)createPlaygroundProject
+{
+    // This will crate both the playgorund directory and the Documentation one at the same time
+    NSError *error;
+    BOOL created = [[NSFileManager defaultManager] createDirectoryAtPath:[self documentationPath] withIntermediateDirectories:YES attributes:nil error:&error];
+    return (created && !error);
+}
+
 - (void)outputPlaygroundWith:(NSDictionary *)content
 {
+    if (content.allKeys.count == 0) return;
     
+    [self createPlaygroundProject];
+    
+    NSMutableArray *lines = [NSMutableArray array];
+    __block NSError *error;
+    [content enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
+        BOOL isSwiftFile = [key hasSuffix:@"swift"];
+        NSString *format = (isSwiftFile)? SWIFT_RESOURCE_FORMAT : HTML_RESOURCE_FORMAT;
+        NSString *line = [NSString stringWithFormat:format, key];
+        [lines addObject:line];
+        
+        NSString *fileRoot = (isSwiftFile)? [self playgroundPath] : [self documentationPath];
+        NSString *filePath = [fileRoot stringByAppendingPathComponent:key];
+        [value writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        
+        if (error) {
+            NSLog(@"Error while writing to file: %@", error.description);
+        }
+    }];
+    
+    NSString *playgroundContent = [NSString stringWithFormat:PLAYGROUND_FORMAT, [lines componentsJoinedByString:@"\n"]];
+    NSString *contentFilePath = [[self playgroundPath] stringByAppendingPathComponent:@"contents.xcplayground"];
+    [playgroundContent writeToFile:contentFilePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"Error while writing to file: %@", error.description);
+    }
 }
 
 

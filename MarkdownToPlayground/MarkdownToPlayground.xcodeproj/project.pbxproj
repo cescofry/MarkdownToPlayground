@@ -71,6 +71,7 @@
 		A5E4F0C819430FD000069D2F /* snippet_format.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = snippet_format.html; sourceTree = "<group>"; };
 		A5E4F0CA19430FD000069D2F /* contents.xcplayground */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = contents.xcplayground; sourceTree = "<group>"; };
 		A5E4F0CC19430FD000069D2F /* Results.playgrounddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = Results.playgrounddata; sourceTree = "<group>"; };
+		A5E4F0D3194322E400069D2F /* Formats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Formats.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +164,7 @@
 		A5E4F0C619430FD000069D2F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A5E4F0D3194322E400069D2F /* Formats.h */,
 				A5E4F0C719430FD000069D2F /* contents_format.xcplayground */,
 				A5E4F0C819430FD000069D2F /* snippet_format.html */,
 				A5E4F0C919430FD000069D2F /* start.playground */,

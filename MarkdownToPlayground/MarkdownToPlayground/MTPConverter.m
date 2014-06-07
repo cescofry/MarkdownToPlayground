@@ -9,9 +9,9 @@
 #import "MTPConverter.h"
 #import "MMMarkdown.h"
 #import "MTPFileManager.h"
+#import "Formats.h"
 
 static NSString *const MTPCodeScannerToken = @"```";
-static NSString *const MTPCodePlaceholder = @"{{{mkdtoplg}}}";
 
 @implementation MTPConverter
 
@@ -61,10 +61,11 @@ static NSString *const MTPCodePlaceholder = @"{{{mkdtoplg}}}";
     static NSString *_htmlFormat;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _htmlFormat = [NSString stringWithContentsOfURL:[MTPFileManager fileURLForResourceName:@"snippet_format.html"] encoding:NSUTF8StringEncoding error:NULL];
+        //_htmlFormat = [NSString stringWithContentsOfURL:[MTPFileManager fileURLForResourceName:@"snippet_format.html"] encoding:NSUTF8StringEncoding error:NULL];
+        _htmlFormat = HTML_FORMAT;
     });
     
-    return [_htmlFormat stringByReplacingOccurrencesOfString:MTPCodePlaceholder withString:html];
+    return [NSString stringWithFormat:_htmlFormat, html];
 }
 
 @end
