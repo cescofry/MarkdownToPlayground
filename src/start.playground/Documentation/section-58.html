@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <title>section-58.html</title>
+        <link rel="stylesheet" type="text/css" href="style-1.1.15.css" />
+        <meta charset='utf-8'> 
+        <meta id="xcode-display" name="xcode-display" content="render" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name = "viewport" content = "width = device-width, maximum-scale=1.0">
+    </head>
+
+    <body id="conceptual_flow_with_tasks" class="jazz">
+        <div class="content-wrapper">
+            <article class="chapter>">
+                <section class="section">
+                    <p class="para">
+  In the setter for <code class="code-voice">perimeter</code>, the new value has the implicit name <code class="code-voice">newValue</code>. You can provide an explicit name in parentheses after <code class="code-voice">set</code>.
+</p><p class="para">
+  Notice that the initializer for the <code class="code-voice">EquilateralTriangle</code> class has three different steps:
+</p><ol class="list-number">
+  <li class="item"><p class="para">
+  Setting the value of properties that the subclass declares.
+</p>
+</li><li class="item"><p class="para">
+  Calling the superclass’s initializer.
+</p>
+</li><li class="item"><p class="para">
+  Changing the value of properties defined by the superclass. Any additional setup work that uses methods, getters, or setters can also be done at this point.
+</p>
+</li>
+</ol><p class="para">
+  If you don’t need to compute the property but still need to provide code that is run before and after setting a new value, use <code class="code-voice">willSet</code> and <code class="code-voice">didSet</code>. For example, the class below ensures that the side length of its triangle is always the same as the side length of its square.
+</p>
+                </section>
+            </article>
+        </div>
+    </body>
+</html>
