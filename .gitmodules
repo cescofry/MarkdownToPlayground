@@ -1,0 +1,3 @@
+[submodule "MarkdownToPlayground/MMMarkdown"]
+	path = MarkdownToPlayground/MMMarkdown
+	url = https://github.com/mdiep/MMMarkdown
