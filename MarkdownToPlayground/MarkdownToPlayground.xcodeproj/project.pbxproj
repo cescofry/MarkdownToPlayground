@@ -41,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A50406FA19446C5300DA9C3B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		A5E4F0841942F90000069D2F /* MarkdownToPlayground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarkdownToPlayground; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E4F0871942F90000069D2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5E4F08A1942F90000069D2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		A5E4F0D3194322E400069D2F /* Formats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Formats.h; sourceTree = "<group>"; };
 		A5E4F0D419433E0500069D2F /* ZFRProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFRProcessInfo.h; sourceTree = "<group>"; };
 		A5E4F0D519433E0500069D2F /* ZFRProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFRProcessInfo.m; sourceTree = "<group>"; };
+		A5E4F0D71944680500069D2F /* CSSFormats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSFormats.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,10 +171,12 @@
 		A5E4F0C619430FD000069D2F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A50406FA19446C5300DA9C3B /* style.css */,
 				A5E4F0D3194322E400069D2F /* Formats.h */,
 				A5E4F0C719430FD000069D2F /* contents_format.xcplayground */,
 				A5E4F0C819430FD000069D2F /* snippet_format.html */,
 				A5E4F0C919430FD000069D2F /* start.playground */,
+				A5E4F0D71944680500069D2F /* CSSFormats.h */,
 			);
 			name = src;
 			path = ../../src;
@@ -371,6 +375,7 @@
 				A5E4F0941942F90000069D2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

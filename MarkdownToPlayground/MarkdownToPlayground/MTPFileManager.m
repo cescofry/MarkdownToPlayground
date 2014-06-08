@@ -8,6 +8,9 @@
 
 #import "MTPFileManager.h"
 #import "Formats.h"
+#import "CSSFormats.h"
+
+static NSString *const cssFileName = @"style.css";
 
 @interface MTPFileManager ()
 
@@ -57,7 +60,7 @@
 - (NSString *)playgroundPath
 {
     // filePath/../fileName.playground
-    return [[[self.userPath stringByDeletingLastPathComponent] stringByAppendingPathComponent:self.fileName] stringByAppendingPathExtension:@"playground"];
+    return [[self.userPath stringByAppendingPathComponent:self.fileName] stringByAppendingPathExtension:@"playground"];
 }
 
 - (NSString *)documentationPath
@@ -75,6 +78,14 @@
     if (error) {
         NSLog(@"Error while creating playgorund file: %@", error.description);
     }
+    else {
+        NSString *cssPath = [[self documentationPath] stringByAppendingPathComponent:cssFileName];
+        [CSS_FORMAT writeToFile:cssPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        if (error) {
+            NSLog(@"Error while creating CSS file: %@", error.description);
+        }
+    }
+    
     return (created && !error);
 }
 
@@ -86,6 +97,7 @@
     
     NSMutableArray *lines = [NSMutableArray array];
     __block NSError *error;
+    
     [content enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
         BOOL isSwiftFile = [key hasSuffix:@"swift"];
         NSString *format = (isSwiftFile)? SWIFT_RESOURCE_FORMAT : HTML_RESOURCE_FORMAT;
@@ -98,6 +110,9 @@
         
         if (error) {
             NSLog(@"Error while writing to file: %@", error.description);
+        }
+        else {
+            NSLog(@"%@ file has been written [%@]", (isSwiftFile)? @"Swift" : @"Doc", key);
         }
     }];
     
