@@ -171,12 +171,12 @@
 		A5E4F0C619430FD000069D2F /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A50406FA19446C5300DA9C3B /* style.css */,
 				A5E4F0D3194322E400069D2F /* Formats.h */,
+				A5E4F0D71944680500069D2F /* CSSFormats.h */,
+				A50406FA19446C5300DA9C3B /* style.css */,
 				A5E4F0C719430FD000069D2F /* contents_format.xcplayground */,
 				A5E4F0C819430FD000069D2F /* snippet_format.html */,
 				A5E4F0C919430FD000069D2F /* start.playground */,
-				A5E4F0D71944680500069D2F /* CSSFormats.h */,
 			);
 			name = src;
 			path = ../../src;

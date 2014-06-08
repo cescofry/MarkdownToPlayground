@@ -28,9 +28,9 @@ static NSString *const MTPCodeScannerToken = @"```";
         if (mkdown) {
             [scanner scanString:MTPCodeScannerToken intoString:NULL];
             NSString *html = [MMMarkdown HTMLStringWithMarkdown:mkdown error:NULL];
-            html = [self wrapHTML:html];
             if (html) {
-                NSString *key = [NSString stringWithFormat:@"%ld-mkdtoplg.html", index];
+                NSString *key = [NSString stringWithFormat:@"section-%ld.html", index];
+                html = [self wrapHTML:html title:key];
                 result[key] = html;
                 index ++;
             }
@@ -40,7 +40,7 @@ static NSString *const MTPCodeScannerToken = @"```";
         [scanner scanUpToString:MTPCodeScannerToken intoString:&code];
         if (code) {
             [scanner scanString:MTPCodeScannerToken intoString:NULL];
-            NSString *key = [NSString stringWithFormat:@"%ld-mkdtoplg.swift", index];
+            NSString *key = [NSString stringWithFormat:@"section-%ld.swift", index];
             result[key] = code;
             index++;
         }
@@ -49,14 +49,14 @@ static NSString *const MTPCodeScannerToken = @"```";
     
     if (result.allKeys.count == 0) {
         NSLog(@"No Code block found!");
-        NSString *key = [NSString stringWithFormat:@"%ld-mkdtoplg.html", index];
+        NSString *key = [NSString stringWithFormat:@"section-%ld.html", index];
         result[key] = [MMMarkdown HTMLStringWithMarkdown:markdown error:NULL];
     }
     
     return [result copy];
 }
 
-+ (NSString *)wrapHTML:(NSString *)html
++ (NSString *)wrapHTML:(NSString *)html title:(NSString *)title
 {
     static NSString *_htmlFormat;
     static dispatch_once_t onceToken;
@@ -65,7 +65,7 @@ static NSString *const MTPCodeScannerToken = @"```";
         _htmlFormat = HTML_FORMAT;
     });
     
-    return [NSString stringWithFormat:_htmlFormat, html];
+    return [NSString stringWithFormat:_htmlFormat, title, html];
 }
 
 @end

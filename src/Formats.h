@@ -23,7 +23,7 @@
 #define HTML_FORMAT @"<!DOCTYPE html>\
 <html lang=\"en\">\
 <head>\
-<title>section-10.html</title>\
+<title>%@</title>\
 <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" />\
 <meta charset='utf-8'>\
 <meta id=\"xcode-display\" name=\"xcode-display\" content=\"render\" />\
@@ -41,9 +41,6 @@
 </div>\
 </body>\
 </html>"
-
-
-#define CSS_FORMAT @""
 
 
 #define HELPER @"Usage: mkdtoplg <fileName.md> [-o <outputPath>]"

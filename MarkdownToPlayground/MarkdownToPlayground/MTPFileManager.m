@@ -80,7 +80,9 @@ static NSString *const cssFileName = @"style.css";
     }
     else {
         NSString *cssPath = [[self documentationPath] stringByAppendingPathComponent:cssFileName];
-        [CSS_FORMAT writeToFile:cssPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        
+        NSString *css = CSS_FORMAT;
+        [css writeToFile:cssPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
         if (error) {
             NSLog(@"Error while creating CSS file: %@", error.description);
         }

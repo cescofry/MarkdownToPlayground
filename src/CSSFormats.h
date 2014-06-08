@@ -1,8 +1,8 @@
 
-#ifndef CSS_FORMATS
+#ifndef MarkdownToPlayground_CSS_Formats_h
+#define MarkdownToPlayground_CSS_Formats_h
 
-#define CSS_FORMATS @"\
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,figure,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {\
+#define CSS_FORMAT @"html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,figure,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {\
     /* background: transparent; */\
 border: 0;\
     font-size: 100%;\
@@ -278,7 +278,7 @@ color: rgba(0,136,204,1);\
 }\
 .jazz h3.section-name:before {\
 display: block;\
-content: " ";\
+content: ' ';\
     margin-top: -85px;\
 height: 85px;\
 visibility: hidden\
@@ -351,7 +351,7 @@ position: relative\
 }\
 .jazz ul.list-bullet li.item:before {\
 color: rgba(65,65,65,1);\
-content: "\02022";\
+content: '\02022';\
     font-size: 1.5em;\
 left: 0;\
     padding-top: 2px;\
@@ -916,7 +916,7 @@ cursor: default\
 #roadmap.jazz .conceptual-with-tasks:before {\
 border: 2px solid rgba(128,128,128,1);\
 border-radius: 50%;\
-content: "";\
+content: '';\
 display: block;\
 float: left;\
 height: 10px;\
@@ -925,7 +925,7 @@ width: 10px\
 }\
 #roadmap.jazz .tutorial:before {\
 border: 2px solid rgba(128,128,128,1);\
-content: "";\
+content: '';\
 display: block;\
 float: left;\
 height: 10px;\
