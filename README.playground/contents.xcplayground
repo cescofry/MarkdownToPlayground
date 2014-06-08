@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<playground version='1.0' sdk='macosx' allows-reset='yes'>
+<sections>
+<documentation relative-path='section-0.html'/>
+<code source-file-name='section-1.swift'/>
+<documentation relative-path='section-2.html'/>
+</sections>
+</playground>
