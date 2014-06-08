@@ -42,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		A50406FA19446C5300DA9C3B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		A56952A61944EF3500CF4B9E /* MarkdownToPlayground-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarkdownToPlayground-Bridging-Header.h"; sourceTree = "<group>"; };
 		A5E4F0841942F90000069D2F /* MarkdownToPlayground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarkdownToPlayground; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E4F0871942F90000069D2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5E4F08A1942F90000069D2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */,
 				A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */,
 				A5E4F08C1942F90000069D2F /* Supporting Files */,
+				A56952A61944EF3500CF4B9E /* MarkdownToPlayground-Bridging-Header.h */,
 			);
 			path = MarkdownToPlayground;
 			sourceTree = "<group>";
@@ -341,18 +343,25 @@
 		A5E4F0931942F90000069D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MarkdownToPlayground/MarkdownToPlayground-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkdownToPlayground/MarkdownToPlayground-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A5E4F0941942F90000069D2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MarkdownToPlayground/MarkdownToPlayground-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkdownToPlayground/MarkdownToPlayground-Bridging-Header.h";
 			};
 			name = Release;
 		};
