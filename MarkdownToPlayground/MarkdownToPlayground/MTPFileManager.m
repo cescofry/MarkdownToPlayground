@@ -118,7 +118,19 @@ static NSString *const cssFileName = @"style.css";
         }
     }];
     
-    NSString *playgroundContent = [NSString stringWithFormat:PLAYGROUND_FORMAT, [lines componentsJoinedByString:@"\n"]];
+    NSRegularExpression *regEx = [NSRegularExpression regularExpressionWithPattern:@"-(\\d+)\\." options:0 error:&error];
+
+    NSArray *sortedLines = [lines sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        NSTextCheckingResult *match1 = [regEx firstMatchInString:obj1 options:0 range:NSMakeRange(0, obj1.length)];
+        NSInteger num1 = [[obj1 substringWithRange:[match1 rangeAtIndex:1]] integerValue];
+
+        NSTextCheckingResult *match2 = [regEx firstMatchInString:obj2 options:0 range:NSMakeRange(0, obj2.length)];
+        NSInteger num2 = [[obj2 substringWithRange:[match2 rangeAtIndex:1]] integerValue];
+        
+        return (num1 > num2);
+    }];
+    
+    NSString *playgroundContent = [NSString stringWithFormat:PLAYGROUND_FORMAT, [sortedLines componentsJoinedByString:@"\n"]];
     NSString *contentFilePath = [[self playgroundPath] stringByAppendingPathComponent:@"contents.xcplayground"];
     [playgroundContent writeToFile:contentFilePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (error) {
