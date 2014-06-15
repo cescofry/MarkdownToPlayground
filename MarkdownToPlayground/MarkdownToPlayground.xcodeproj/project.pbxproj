@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		A56952AA194D985700CF4B9E /* ZFRProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */; };
 		A56952BF194DA0FD00CF4B9E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952BE194DA0FD00CF4B9E /* main.swift */; };
+		A5B4B17A194DB85200DCE32D /* MTPConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4B179194DB85200DCE32D /* MTPConverter.swift */; };
 		A5E4F0881942F90000069D2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E4F0871942F90000069D2F /* Foundation.framework */; };
-		A5E4F0981942F97500069D2F /* MTPConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0971942F97500069D2F /* MTPConverter.m */; };
 		A5E4F0AD1942FA8F00069D2F /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F09C1942FA8F00069D2F /* MMDocument.m */; };
 		A5E4F0AE1942FA8F00069D2F /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F09F1942FA8F00069D2F /* MMElement.m */; };
 		A5E4F0AF1942FA8F00069D2F /* MMGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0A11942FA8F00069D2F /* MMGenerator.m */; };
@@ -21,7 +21,7 @@
 		A5E4F0B41942FA8F00069D2F /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0AC1942FA8F00069D2F /* MMSpanParser.m */; };
 		A5E4F0B71942FF5D00069D2F /* MTPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */; };
 		A5E4F0CD19430FE300069D2F /* contents_format.xcplayground in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C719430FD000069D2F /* contents_format.xcplayground */; };
-		A5E4F0CE19430FE300069D2F /* snippet_format.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C819430FD000069D2F /* snippet_format.html */; };
+		A5E4F0CE19430FE300069D2F /* snippet_format.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C819430FD000069D2F /* snippet_format.html */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A5E4F0CF19431BD700069D2F /* MarkdownToPlayground.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */; };
 /* End PBXBuildFile section */
 
@@ -47,11 +47,10 @@
 		A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRProcessInfo.swift; sourceTree = "<group>"; };
 		A56952BE194DA0FD00CF4B9E /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A58F68CD194DB3C600C426E2 /* CSSFormats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSSFormats.h; path = ../../src/CSSFormats.h; sourceTree = "<group>"; };
+		A5B4B179194DB85200DCE32D /* MTPConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPConverter.swift; sourceTree = "<group>"; };
 		A5E4F0841942F90000069D2F /* MarkdownToPlayground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarkdownToPlayground; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E4F0871942F90000069D2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MarkdownToPlayground.1; sourceTree = "<group>"; };
-		A5E4F0961942F97500069D2F /* MTPConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPConverter.h; sourceTree = "<group>"; };
-		A5E4F0971942F97500069D2F /* MTPConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPConverter.m; sourceTree = "<group>"; };
 		A5E4F09B1942FA8F00069D2F /* MMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument.h; sourceTree = "<group>"; };
 		A5E4F09C1942FA8F00069D2F /* MMDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDocument.m; sourceTree = "<group>"; };
 		A5E4F09D1942FA8F00069D2F /* MMDocument_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument_Private.h; sourceTree = "<group>"; };
@@ -90,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5B4B178194DB83400DCE32D /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				A5E4F09A1942FA8F00069D2F /* MMMarkdown */,
+			);
+			name = Ext;
+			sourceTree = "<group>";
+		};
 		A5E4F07B1942F90000069D2F = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +125,10 @@
 		A5E4F0891942F90000069D2F /* MarkdownToPlayground */ = {
 			isa = PBXGroup;
 			children = (
-				A5E4F09A1942FA8F00069D2F /* MMMarkdown */,
+				A5B4B178194DB83400DCE32D /* Ext */,
 				A56952BE194DA0FD00CF4B9E /* main.swift */,
 				A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */,
-				A5E4F0961942F97500069D2F /* MTPConverter.h */,
-				A5E4F0971942F97500069D2F /* MTPConverter.m */,
+				A5B4B179194DB85200DCE32D /* MTPConverter.swift */,
 				A5E4F0B51942FF5D00069D2F /* MTPFileManager.h */,
 				A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */,
 				A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */,
@@ -248,10 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5E4F0981942F97500069D2F /* MTPConverter.m in Sources */,
 				A56952BF194DA0FD00CF4B9E /* main.swift in Sources */,
 				A5E4F0B01942FA8F00069D2F /* MMHTMLParser.m in Sources */,
 				A5E4F0B31942FA8F00069D2F /* MMScanner.m in Sources */,
+				A5B4B17A194DB85200DCE32D /* MTPConverter.swift in Sources */,
 				A5E4F0AF1942FA8F00069D2F /* MMGenerator.m in Sources */,
 				A5E4F0B21942FA8F00069D2F /* MMParser.m in Sources */,
 				A5E4F0B41942FA8F00069D2F /* MMSpanParser.m in Sources */,

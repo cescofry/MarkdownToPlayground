@@ -8,8 +8,6 @@
 
 import Foundation
 
-let HELPER = "Usage: mkdtoplg <fileName.md> [-o <outputPath>]"
-
 let env = ZFRProcessInfo.info()
 
 var mkdFile : String? = env["0"] as? String
