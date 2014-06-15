@@ -14,6 +14,15 @@ class MTPFileManager {
     
     var filePath: String
     var userPath: String
+    
+    class var regEx : NSRegularExpression {
+        get {
+            var error : NSError? = nil
+            let regExString : NSString! = "-(\\d+)\\."
+            return NSRegularExpression.regularExpressionWithPattern(regExString, options: nil, error: &error)
+    }
+    }
+    
     var filename: String? {
     get {
         return self.filePath.lastPathComponent.stringByDeletingPathExtension
@@ -133,11 +142,7 @@ class MTPFileManager {
     
     func intFromName(name: NSString) -> Int? {
         
-        var error : NSError? = nil
-        let regExString : NSString! = "-(\\d+)\\."
-        let regEx = NSRegularExpression.regularExpressionWithPattern(regExString, options: nil, error: &error)
-        
-        let match = regEx.firstMatchInString(name, options: nil, range: NSMakeRange(0, name.length))
+        let match = MTPFileManager.regEx.firstMatchInString(name, options: nil, range: NSMakeRange(0, name.length))
         let range = match.rangeAtIndex(1)
         let num = name.substringWithRange(range)
         
