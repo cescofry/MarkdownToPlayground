@@ -20,7 +20,7 @@ if help {
 else if mkdFile && userPath {
     let fileManager = MTPFileManager(markdownFile: mkdFile!, userPath: userPath!)
     let contents = MTPConverter.htmlFromMarkdown(fileManager.markdown)
-    fileManager.outputPlaygroundWith(contents)
+    fileManager.outputPlaygroundWithContent(contents)
 }
 else {
     NSLog("Missing markdown file")

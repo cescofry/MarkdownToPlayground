@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A55AAFC9194DE00D003F5839 /* MTPFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55AAFC8194DE00D003F5839 /* MTPFileManager.swift */; };
 		A56952AA194D985700CF4B9E /* ZFRProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */; };
 		A56952BF194DA0FD00CF4B9E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952BE194DA0FD00CF4B9E /* main.swift */; };
 		A5B4B17A194DB85200DCE32D /* MTPConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4B179194DB85200DCE32D /* MTPConverter.swift */; };
@@ -19,7 +20,6 @@
 		A5E4F0B21942FA8F00069D2F /* MMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0A81942FA8F00069D2F /* MMParser.m */; };
 		A5E4F0B31942FA8F00069D2F /* MMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0AA1942FA8F00069D2F /* MMScanner.m */; };
 		A5E4F0B41942FA8F00069D2F /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0AC1942FA8F00069D2F /* MMSpanParser.m */; };
-		A5E4F0B71942FF5D00069D2F /* MTPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */; };
 		A5E4F0CD19430FE300069D2F /* contents_format.xcplayground in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C719430FD000069D2F /* contents_format.xcplayground */; };
 		A5E4F0CE19430FE300069D2F /* snippet_format.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F0C819430FD000069D2F /* snippet_format.html */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A5E4F0CF19431BD700069D2F /* MarkdownToPlayground.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */; };
@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		A50406FA19446C5300DA9C3B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		A5467CB8194DB12C00503A75 /* Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Formats.h; path = ../../src/Formats.h; sourceTree = "<group>"; };
+		A55AAFC8194DE00D003F5839 /* MTPFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPFileManager.swift; sourceTree = "<group>"; };
 		A56952A61944EF3500CF4B9E /* MarkdownToPlayground-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarkdownToPlayground-Bridging-Header.h"; sourceTree = "<group>"; };
 		A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRProcessInfo.swift; sourceTree = "<group>"; };
 		A56952BE194DA0FD00CF4B9E /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -69,8 +70,6 @@
 		A5E4F0AA1942FA8F00069D2F /* MMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScanner.m; sourceTree = "<group>"; };
 		A5E4F0AB1942FA8F00069D2F /* MMSpanParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSpanParser.h; sourceTree = "<group>"; };
 		A5E4F0AC1942FA8F00069D2F /* MMSpanParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSpanParser.m; sourceTree = "<group>"; };
-		A5E4F0B51942FF5D00069D2F /* MTPFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPFileManager.h; sourceTree = "<group>"; };
-		A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPFileManager.m; sourceTree = "<group>"; };
 		A5E4F0C719430FD000069D2F /* contents_format.xcplayground */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = contents_format.xcplayground; sourceTree = "<group>"; };
 		A5E4F0C819430FD000069D2F /* snippet_format.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = snippet_format.html; sourceTree = "<group>"; };
 		A5E4F0CA19430FD000069D2F /* contents.xcplayground */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = contents.xcplayground; sourceTree = "<group>"; };
@@ -129,8 +128,7 @@
 				A56952BE194DA0FD00CF4B9E /* main.swift */,
 				A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */,
 				A5B4B179194DB85200DCE32D /* MTPConverter.swift */,
-				A5E4F0B51942FF5D00069D2F /* MTPFileManager.h */,
-				A5E4F0B61942FF5D00069D2F /* MTPFileManager.m */,
+				A55AAFC8194DE00D003F5839 /* MTPFileManager.swift */,
 				A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */,
 				A5E4F08C1942F90000069D2F /* Supporting Files */,
 				A56952A61944EF3500CF4B9E /* MarkdownToPlayground-Bridging-Header.h */,
@@ -258,6 +256,7 @@
 				A5E4F0B01942FA8F00069D2F /* MMHTMLParser.m in Sources */,
 				A5E4F0B31942FA8F00069D2F /* MMScanner.m in Sources */,
 				A5B4B17A194DB85200DCE32D /* MTPConverter.swift in Sources */,
+				A55AAFC9194DE00D003F5839 /* MTPFileManager.swift in Sources */,
 				A5E4F0AF1942FA8F00069D2F /* MMGenerator.m in Sources */,
 				A5E4F0B21942FA8F00069D2F /* MMParser.m in Sources */,
 				A5E4F0B41942FA8F00069D2F /* MMSpanParser.m in Sources */,
@@ -265,7 +264,6 @@
 				A56952AA194D985700CF4B9E /* ZFRProcessInfo.swift in Sources */,
 				A5E4F0AD1942FA8F00069D2F /* MMDocument.m in Sources */,
 				A5E4F0B11942FA8F00069D2F /* MMMarkdown.m in Sources */,
-				A5E4F0B71942FF5D00069D2F /* MTPFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,17 +14,18 @@ class MTPConverter {
     
     class func htmlFromMarkdown(markdown: String?) -> Dictionary<String, String> {
         
+        
         var result = Dictionary<String, String>()
         var scanner = NSScanner(string: markdown!)
         var index = 0
         
-        while scanner.atEnd {
+        while !scanner.atEnd {
             var mkdown : NSString? = nil
             scanner.scanUpToString(MTPCodeScannerToken, intoString: &mkdown)
             
             // HTML Section
             if mkdown {
-                scanner.scanUpToString(MTPCodeScannerToken, intoString: nil)
+                scanner.scanString(MTPCodeScannerToken, intoString: nil)
                 var html = MMMarkdown.HTMLStringWithMarkdown(mkdown, error: nil)
                 
                 if html {
@@ -40,7 +41,7 @@ class MTPConverter {
             
             // Swift
             if code {
-                scanner.scanUpToString(MTPCodeScannerToken, intoString: nil)
+                scanner.scanString(MTPCodeScannerToken, intoString: nil)
                 let key = "section-\(index).swift"
                 result[key] = code!
                 index++
