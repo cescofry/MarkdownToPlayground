@@ -8,10 +8,27 @@
 
 import Foundation
 
+let HELPER = "Usage: mkdtoplg <fileName.md> [-o <outputPath>]"
 
 let env = ZFRProcessInfo.info()
 
-if env["0"] {
-    NSLog("Missing markdown file")
-    NSLog("", HELPER)
+var mkdFile : String? = env["0"] as? String
+let userPath : String? = env["PWD"] as? String;
+let help : AnyObject! = env["help"]
+
+if help {
+    //    NSLog("%@", HELPER);
 }
+else if mkdFile && userPath {
+    let fileManager = MTPFileManager(markdownFile: mkdFile!, userPath: userPath!)
+    let contents = MTPConverter.htmlFromMarkdown(fileManager.markdown)
+    fileManager.outputPlaygroundWith(contents)
+}
+else {
+    NSLog("Missing markdown file")
+    //  NSLog("", HELPER)
+}
+
+
+
+

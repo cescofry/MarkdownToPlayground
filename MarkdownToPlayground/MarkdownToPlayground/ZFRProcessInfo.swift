@@ -25,12 +25,13 @@ class ZFRProcessInfo {
             environment = environment.dictionaryWithValuesForKeys(keys)
         }
         
+        var result = environment.mutableCopy() as NSMutableDictionary
         
         var pendingKey : String?;
         var unkeyedIndex  = 0
         let args = NSProcessInfo.processInfo().arguments!
         for  (index, value : AnyObject) in enumerate(args){
-            let arg = value as String
+            let arg = value as NSString
             if arg.hasPrefix("-") {
                 pendingKey = arg.substringFromIndex(1)
                 continue
@@ -40,7 +41,7 @@ class ZFRProcessInfo {
                 pendingKey = "build_path"
             }
             
-            var key : String
+            var key : NSString
             if var mutKey = pendingKey {
                 while mutKey.hasPrefix("-") {
                     mutKey = mutKey.substringFromIndex(1)
@@ -52,10 +53,10 @@ class ZFRProcessInfo {
                 key = "\(unkeyedIndex)"
                 unkeyedIndex++
             }
-            environment.setValue(arg, forKey: key)
+            result[key] = arg
         }
         
-        return environment
+        return result.copy() as NSDictionary
 
     }
 }

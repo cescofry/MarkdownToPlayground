@@ -43,7 +43,7 @@ static NSString *const cssFileName = @"style.css";
     NSError *error;
     NSString *result = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     if (error) {
-        NSLog(@"An error occured while retrieveing markdown: %@", error.debugDescription);
+        NSLog(@"An error occured while retrieveing markdown at url %@\n %@", url.absoluteString, error.debugDescription);
     }
     return result;
 }

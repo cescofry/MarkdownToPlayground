@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/cescofry/Dev/mac/MarkdownToPlayground/swift-highlights.md"
+            argument = "/Users/cescofry/Dev/mac/MarkdownToPlayground/README.md"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
