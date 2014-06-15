@@ -10,7 +10,6 @@
 #import "MTPConverter.h"
 #import "MTPFileManager.h"
 #import "Formats.h"
-#import "ZFRProcessInfo.h"
 
 int main(int argc, const char * argv[])
 {
