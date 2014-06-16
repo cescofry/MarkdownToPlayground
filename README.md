@@ -17,7 +17,7 @@ println("My name is \(name) and you can find me on twitter as \(twitter)")
 
 - At the moment the tool will only recognize code sections in between 2 ' \`\`\` ' patterns.
 - It is not possible to provide your own css.
-- The tool is written in Objective C, so 2013!
+- <del>The tool is written in Objective C, so 2013!</del> It is now in Swift
 - I didn't find a way to copy resources as the command line tools do not have a bundle so the placeholder formats are defines on c headers. Not the best think to modify.
 
 
