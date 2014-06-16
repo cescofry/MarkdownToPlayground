@@ -158,7 +158,7 @@ class MTPFileManager {
             if num1 == num2 {
                 return NSComparisonResult.OrderedSame
             }
-            else if num1 < num2 {
+            else if num1 > num2 {
                 return NSComparisonResult.OrderedDescending
             }
             else {
