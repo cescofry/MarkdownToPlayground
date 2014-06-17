@@ -14,6 +14,13 @@ class MTPFileManager {
     
     var filePath: String
     var userPath: String
+    var customCSSPath: String? {
+    willSet {
+        if newValue {
+            self.customCSSPath = self.userPath.stringByAppendingString(newValue!);
+        }
+    }
+    }
     
     class var regEx : NSRegularExpression {
         get {
@@ -65,6 +72,27 @@ class MTPFileManager {
         }
     }
     
+    func createCSS() -> NSError? {
+        let cssPath = self.documentationPath.stringByAppendingPathComponent(MTPFileManagerCSSFileName)
+        var cssFormat : String?
+        if self.customCSSPath {
+            cssFormat = NSString(contentsOfFile: self.customCSSPath, encoding: NSUTF8StringEncoding, error: nil)
+            cssFormat = cssFormat!.stringByAppendingString("\n%@\n")
+        }
+        if (!cssFormat) {
+            cssFormat = CSS_FORMAT
+        }
+        let css = NSString(format: cssFormat!, CSS_SECTION_FORMAT)
+        
+        var error : NSError? = nil
+        css.writeToFile(cssPath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
+        if (error) {
+            NSLog("Error while creating CSS file: %@", error!.localizedDescription);
+        }
+        
+        return error
+    }
+    
     func createPlaygroundProject() -> Bool {
         var error : NSError? = nil
         let created = NSFileManager.defaultManager().createDirectoryAtPath(self.documentationPath, withIntermediateDirectories: true, attributes: nil, error: &error)
@@ -73,13 +101,7 @@ class MTPFileManager {
             return false
         }
         else {
-            let cssPath = self.documentationPath.stringByAppendingPathComponent(MTPFileManagerCSSFileName)
-            let css = NSString(format: CSS_FORMAT, CSS_SECTION_FORMAT)
-            css.writeToFile(cssPath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
-            if (error) {
-                NSLog("Error while creating CSS file: %@", error!.localizedDescription);
-            }
-            
+            error = createCSS()
             return !error
         }
     }
