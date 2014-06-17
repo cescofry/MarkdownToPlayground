@@ -3,6 +3,12 @@
 #define MarkdownToPlayground_CSS_Formats_h
 
 
+#define CSS_SECTION_FORMAT @"section {\n\
+    padding-top: 10px;\n\
+    padding-bottom: 20px;\n\
+    -webkit-overflow-scrolling: touch;\n\
+}\n"
+
 #define CSS_FORMAT @"html {\n\
     font-size: 80%;\n\
 }\n\
@@ -14,11 +20,7 @@ body {\n\
     padding-left: 20px;\n\
 }\n\
 \
-section {\n\
-    padding-top: 10px;\n\
-    padding-bottom: 20px;\n\
-    -webkit-overflow-scrolling: touch;\n\
-}\n\
+%@\
 \
 code {\n\
     margin: 0;\n\

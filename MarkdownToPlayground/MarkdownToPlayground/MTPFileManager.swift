@@ -74,7 +74,7 @@ class MTPFileManager {
         }
         else {
             let cssPath = self.documentationPath.stringByAppendingPathComponent(MTPFileManagerCSSFileName)
-            let css = CSS_FORMAT
+            let css = NSString(format: CSS_FORMAT, CSS_SECTION_FORMAT)
             css.writeToFile(cssPath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
             if (error) {
                 NSLog("Error while creating CSS file: %@", error!.localizedDescription);
