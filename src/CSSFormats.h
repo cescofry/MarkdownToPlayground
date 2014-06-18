@@ -10,7 +10,7 @@
 }\n"
 
 #define CSS_FORMAT @"html {\n\
-    font-size: 80%;\n\
+    font-size: 65%;\n\
 }\n\
 \
 body {\n\

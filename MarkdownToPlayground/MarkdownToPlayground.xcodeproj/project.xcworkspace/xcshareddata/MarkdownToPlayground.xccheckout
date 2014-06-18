@@ -5,36 +5,48 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>74CA54F3-37E6-4E5C-B6A2-70664F1B9EFF</string>
+	<string>013DB4FB-18FA-492B-B9E1-51DE7AFEDCA2</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MarkdownToPlayground</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CF5094AC-7D9B-4698-9B88-0A9F94CE8C21</key>
-		<string>file:///Users/ffrison/Dropbox/gitRepo/MarkdownToPlayground.git/</string>
+		<key>87E93C22-9B08-4209-91D0-2A1656629C58</key>
+		<string>https://github.com/cescofry/MarkdownToPlayground.git</string>
+		<key>DD002712-59FF-475E-A7F6-507EA2C2AB1C</key>
+		<string>https://github.com/mdiep/MMMarkdown</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MarkdownToPlayground/MarkdownToPlayground.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CF5094AC-7D9B-4698-9B88-0A9F94CE8C21</key>
+		<key>87E93C22-9B08-4209-91D0-2A1656629C58</key>
 		<string>../../..</string>
+		<key>DD002712-59FF-475E-A7F6-507EA2C2AB1C</key>
+		<string>../../MMMarkdown</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>file:///Users/ffrison/Dropbox/gitRepo/MarkdownToPlayground.git/</string>
+	<string>https://github.com/cescofry/MarkdownToPlayground.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CF5094AC-7D9B-4698-9B88-0A9F94CE8C21</string>
+	<string>87E93C22-9B08-4209-91D0-2A1656629C58</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CF5094AC-7D9B-4698-9B88-0A9F94CE8C21</string>
+			<string>87E93C22-9B08-4209-91D0-2A1656629C58</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MarkdownToPlayground</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD002712-59FF-475E-A7F6-507EA2C2AB1C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MMMarkdown</string>
 		</dict>
 	</array>
 </dict>
