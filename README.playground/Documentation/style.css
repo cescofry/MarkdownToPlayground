@@ -1,32 +1,13 @@
-html {
-    font-size: 80%;
-}
-body {
+body, h1, h2, h3 {
     background-color: #fff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.5em;
-    padding-left: 20px;
+    font-size: 3.5em;
+    padding-left: 50px;
 }
+
 section {
     padding-top: 10px;
     padding-bottom: 20px;
     -webkit-overflow-scrolling: touch;
 }
-code {
-    margin: 0;
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-padding: 0;
-}
-h1 {
-    font-size: 2.5em;
-    border-bottom: 1px solid #ddd
-}
-h2 {
-    font-size: 2em;
-    border-bottom: 1px solid #eee
-}
-h3 {
-    font-size: 1.7em
-}
+

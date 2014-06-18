@@ -53,16 +53,27 @@ class MTPConverter {
             let key = "section-\(index).html"
             var html = MMMarkdown.HTMLStringWithMarkdown(markdown, error: nil)
             if html {
-                let key = "section-\(index).html"
                 html = wrapHTML(html, title: key)
                 result[key] = html
+                index++
             }
         }
         
+        
+        let key = "section-\(index).html"
+        var html = appendFooterToHTML("")
+        
+        html = wrapHTML(html, title: key)
+        result[key] = html
+
         return result
     }
     
     class func wrapHTML(html: String, title: String) -> String {
         return NSString(format: HTML_FORMAT, title, html)
+    }
+    
+    class func appendFooterToHTML(html: String) -> String {
+        return html + FOOTER_HTML + "\n"
     }
 }

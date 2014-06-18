@@ -12,6 +12,8 @@
 #define HTML_RESOURCE_FORMAT @"<documentation relative-path='%@'/>"
 #define SWIFT_RESOURCE_FORMAT @"<code source-file-name='%@'/>"
 
+#define FOOTER_HTML @"<p>This documentation has been created using <a href='https://github.com/cescofry/MarkdownToPlayground'>MarkdownToPlayground</a>.</p>"
+
 #define PLAYGROUND_FORMAT @"<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n\
 <playground version='1.0' sdk='macosx' allows-reset='yes'>\n\
 <sections>\n\
@@ -43,6 +45,6 @@
 </html>"
 
 
-#define HELPER @"Usage: mkdtoplg <fileName.md> [-o <outputPath>]"
+#define HELPER @"Usage: mkdtoplg [-o <outputPath>] [-css <customCSSPath>] <fileName.md>"
 
 #endif

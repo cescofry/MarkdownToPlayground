@@ -17,7 +17,13 @@ class MTPFileManager {
     var customCSSPath: String? {
     willSet {
         if newValue {
-            self.customCSSPath = self.userPath.stringByAppendingString(newValue!);
+            
+            if newValue!.hasPrefix("/") || newValue!.hasPrefix("~") {
+                self.customCSSPath = newValue!
+            }
+            else {
+                self.customCSSPath = self.userPath.stringByAppendingString(newValue!);
+            }
         }
     }
     }
@@ -75,8 +81,9 @@ class MTPFileManager {
     func createCSS() -> NSError? {
         let cssPath = self.documentationPath.stringByAppendingPathComponent(MTPFileManagerCSSFileName)
         var cssFormat : String?
+        var error : NSError? = nil
         if self.customCSSPath {
-            cssFormat = NSString(contentsOfFile: self.customCSSPath, encoding: NSUTF8StringEncoding, error: nil)
+            cssFormat = NSString(contentsOfFile: self.customCSSPath, encoding: NSUTF8StringEncoding, error: &error)
             cssFormat = cssFormat!.stringByAppendingString("\n%@\n")
         }
         if (!cssFormat) {
@@ -84,7 +91,6 @@ class MTPFileManager {
         }
         let css = NSString(format: cssFormat!, CSS_SECTION_FORMAT)
         
-        var error : NSError? = nil
         css.writeToFile(cssPath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
         if (error) {
             NSLog("Error while creating CSS file: %@", error!.localizedDescription);

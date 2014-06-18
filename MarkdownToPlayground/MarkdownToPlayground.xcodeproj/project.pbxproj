@@ -204,9 +204,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A5E4F0831942F90000069D2F /* MarkdownToPlayground */ = {
+		A5E4F0831942F90000069D2F /* mkdtoplg */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5E4F0921942F90000069D2F /* Build configuration list for PBXNativeTarget "MarkdownToPlayground" */;
+			buildConfigurationList = A5E4F0921942F90000069D2F /* Build configuration list for PBXNativeTarget "mkdtoplg" */;
 			buildPhases = (
 				A5E4F0801942F90000069D2F /* Sources */,
 				A5E4F0811942F90000069D2F /* Frameworks */,
@@ -216,7 +216,7 @@
 			);
 			dependencies = (
 			);
-			name = MarkdownToPlayground;
+			name = mkdtoplg;
 			productName = MarkdownToPlayground;
 			productReference = A5E4F0841942F90000069D2F /* MarkdownToPlayground */;
 			productType = "com.apple.product-type.tool";
@@ -242,7 +242,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A5E4F0831942F90000069D2F /* MarkdownToPlayground */,
+				A5E4F0831942F90000069D2F /* mkdtoplg */,
 			);
 		};
 /* End PBXProject section */
@@ -377,7 +377,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5E4F0921942F90000069D2F /* Build configuration list for PBXNativeTarget "MarkdownToPlayground" */ = {
+		A5E4F0921942F90000069D2F /* Build configuration list for PBXNativeTarget "mkdtoplg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5E4F0931942F90000069D2F /* Debug */,
