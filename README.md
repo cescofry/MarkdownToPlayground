@@ -13,6 +13,9 @@ let twitter = "@cescofry"
 println("My name is \(name) and you can find me on twitter as \(twitter)")
 ```
 
+### This README will become:
+![Alt screenshot](https://ziofritz.s3.amazonaws.com/mkdToPlg_screen.png)
+
 ### TODO://
 
 - At the moment the tool will only recognize code sections in between 2 ' \`\`\` ' patterns.
