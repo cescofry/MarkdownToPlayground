@@ -1,10 +1,10 @@
 html {
-    font-size: 100%;
+    font-size: 80;
 }
 body {
     background-color: #fff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1em;
+    font-size: 1.5em;
     padding-left: 20px;
 }
 section {
@@ -20,13 +20,13 @@ code {
 padding: 0;
 }
 h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     border-bottom: 1px solid #ddd
 }
 h2 {
-    font-size: 1.5em;
+    font-size: 2em;
     border-bottom: 1px solid #eee
 }
 h3 {
-    font-size: 1.2em
+    font-size: 1.7em
 }
