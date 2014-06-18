@@ -3,7 +3,6 @@
 //  MarkdownToPlayground
 //
 //  Created by Francesco Frison on 07/06/2014.
-//  Copyright (c) 2014 Ziofritz. All rights reserved.
 //
 
 #ifndef MarkdownToPlayground_Formats_h

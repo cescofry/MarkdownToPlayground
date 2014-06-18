@@ -49,7 +49,7 @@
 		A56952BE194DA0FD00CF4B9E /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A58F68CD194DB3C600C426E2 /* CSSFormats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSSFormats.h; path = ../../src/CSSFormats.h; sourceTree = "<group>"; };
 		A5B4B179194DB85200DCE32D /* MTPConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPConverter.swift; sourceTree = "<group>"; };
-		A5E4F0841942F90000069D2F /* MarkdownToPlayground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarkdownToPlayground; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5E4F0841942F90000069D2F /* mkdtoplg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mkdtoplg; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E4F0871942F90000069D2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5E4F08E1942F90000069D2F /* MarkdownToPlayground.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MarkdownToPlayground.1; sourceTree = "<group>"; };
 		A5E4F09B1942FA8F00069D2F /* MMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument.h; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		A5E4F0851942F90000069D2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5E4F0841942F90000069D2F /* MarkdownToPlayground */,
+				A5E4F0841942F90000069D2F /* mkdtoplg */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 			);
 			name = mkdtoplg;
 			productName = MarkdownToPlayground;
-			productReference = A5E4F0841942F90000069D2F /* MarkdownToPlayground */;
+			productReference = A5E4F0841942F90000069D2F /* mkdtoplg */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
