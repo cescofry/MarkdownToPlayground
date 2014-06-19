@@ -14,7 +14,7 @@ println("My name is \(name) and you can find me on twitter as \(twitter)")
 ```
 
 ### This README will become:
-![Alt screenshot](https://raw.githubusercontent.com/cescofry/MarkdownToPlayground/master/mkdtoplg_screen.png)
+![Alt screenshot](https://raw.githubusercontent.com/cescofry/MarkdownToPlayground/master/screenshot.png)
 
 ### TODO://
 
