@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B23C5C51958715C00452A2A /* MarkdownToPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B23C5C41958715C00452A2A /* MarkdownToPlaygroundTests.swift */; };
+		9B23C5C91958719000452A2A /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F09C1942FA8F00069D2F /* MMDocument.m */; };
+		9B23C5CA1958719000452A2A /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F09F1942FA8F00069D2F /* MMElement.m */; };
+		9B23C5CB1958719000452A2A /* MMGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0A11942FA8F00069D2F /* MMGenerator.m */; };
+		9B23C5CC1958719000452A2A /* MMHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0A31942FA8F00069D2F /* MMHTMLParser.m */; };
+		9B23C5CD1958719000452A2A /* MMMarkdown.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0A61942FA8F00069D2F /* MMMarkdown.m */; };
+		9B23C5CE1958719000452A2A /* MMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0A81942FA8F00069D2F /* MMParser.m */; };
+		9B23C5CF1958719000452A2A /* MMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0AA1942FA8F00069D2F /* MMScanner.m */; };
+		9B23C5D01958719000452A2A /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F0AC1942FA8F00069D2F /* MMSpanParser.m */; };
+		9B23C5D11958719600452A2A /* MTPConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4B179194DB85200DCE32D /* MTPConverter.swift */; };
 		A55AAFC9194DE00D003F5839 /* MTPFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55AAFC8194DE00D003F5839 /* MTPFileManager.swift */; };
 		A56952AA194D985700CF4B9E /* ZFRProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */; };
 		A56952BF194DA0FD00CF4B9E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952BE194DA0FD00CF4B9E /* main.swift */; };
@@ -41,6 +51,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B23C5C01958715C00452A2A /* MarkdownToPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkdownToPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B23C5C31958715C00452A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B23C5C41958715C00452A2A /* MarkdownToPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownToPlaygroundTests.swift; sourceTree = "<group>"; };
 		A50406FA19446C5300DA9C3B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		A5467CB8194DB12C00503A75 /* Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Formats.h; path = ../../src/Formats.h; sourceTree = "<group>"; };
 		A55AAFC8194DE00D003F5839 /* MTPFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPFileManager.swift; sourceTree = "<group>"; };
@@ -77,6 +90,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9B23C5BD1958715C00452A2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5E4F0811942F90000069D2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,6 +108,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B23C5C11958715C00452A2A /* MarkdownToPlaygroundTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B23C5C41958715C00452A2A /* MarkdownToPlaygroundTests.swift */,
+				9B23C5C21958715C00452A2A /* Supporting Files */,
+			);
+			path = MarkdownToPlaygroundTests;
+			sourceTree = "<group>";
+		};
+		9B23C5C21958715C00452A2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B23C5C31958715C00452A2A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A5B4B178194DB83400DCE32D /* Ext */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				A5E4F0891942F90000069D2F /* MarkdownToPlayground */,
+				9B23C5C11958715C00452A2A /* MarkdownToPlaygroundTests */,
 				A5E4F0861942F90000069D2F /* Frameworks */,
 				A5E4F0851942F90000069D2F /* Products */,
 			);
@@ -109,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A5E4F0841942F90000069D2F /* mkdtoplg */,
+				9B23C5C01958715C00452A2A /* MarkdownToPlaygroundTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +243,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9B23C5BF1958715C00452A2A /* MarkdownToPlaygroundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B23C5C61958715C00452A2A /* Build configuration list for PBXNativeTarget "MarkdownToPlaygroundTests" */;
+			buildPhases = (
+				9B23C5BC1958715C00452A2A /* Sources */,
+				9B23C5BD1958715C00452A2A /* Frameworks */,
+				9B23C5BE1958715C00452A2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarkdownToPlaygroundTests;
+			productName = MarkdownToPlaygroundTests;
+			productReference = 9B23C5C01958715C00452A2A /* MarkdownToPlaygroundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A5E4F0831942F90000069D2F /* mkdtoplg */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5E4F0921942F90000069D2F /* Build configuration list for PBXNativeTarget "mkdtoplg" */;
@@ -229,6 +285,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Ziofritz;
+				TargetAttributes = {
+					9B23C5BF1958715C00452A2A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
 			};
 			buildConfigurationList = A5E4F07F1942F90000069D2F /* Build configuration list for PBXProject "MarkdownToPlayground" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -243,11 +304,39 @@
 			projectRoot = "";
 			targets = (
 				A5E4F0831942F90000069D2F /* mkdtoplg */,
+				9B23C5BF1958715C00452A2A /* MarkdownToPlaygroundTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9B23C5BE1958715C00452A2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		9B23C5BC1958715C00452A2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B23C5CD1958719000452A2A /* MMMarkdown.m in Sources */,
+				9B23C5C91958719000452A2A /* MMDocument.m in Sources */,
+				9B23C5CF1958719000452A2A /* MMScanner.m in Sources */,
+				9B23C5CC1958719000452A2A /* MMHTMLParser.m in Sources */,
+				9B23C5CE1958719000452A2A /* MMParser.m in Sources */,
+				9B23C5D01958719000452A2A /* MMSpanParser.m in Sources */,
+				9B23C5D11958719600452A2A /* MTPConverter.swift in Sources */,
+				9B23C5CB1958719000452A2A /* MMGenerator.m in Sources */,
+				9B23C5C51958715C00452A2A /* MarkdownToPlaygroundTests.swift in Sources */,
+				9B23C5CA1958719000452A2A /* MMElement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5E4F0801942F90000069D2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +359,45 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		9B23C5C71958715C00452A2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MarkdownToPlaygroundTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkdownToPlayground/MarkdownToPlayground-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9B23C5C81958715C00452A2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MarkdownToPlaygroundTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkdownToPlayground/MarkdownToPlayground-Bridging-Header.h";
+			};
+			name = Release;
+		};
 		A5E4F0901942F90000069D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -368,6 +496,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9B23C5C61958715C00452A2A /* Build configuration list for PBXNativeTarget "MarkdownToPlaygroundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B23C5C71958715C00452A2A /* Debug */,
+				9B23C5C81958715C00452A2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A5E4F07F1942F90000069D2F /* Build configuration list for PBXProject "MarkdownToPlayground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

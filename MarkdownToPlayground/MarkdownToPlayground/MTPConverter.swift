@@ -8,6 +8,7 @@
 import Foundation
 
 let MTPCodeScannerToken = "```"
+let MTPCodeScannerSwiftToken = "swift"
 
 class MTPConverter {
     
@@ -21,7 +22,7 @@ class MTPConverter {
         while !scanner.atEnd {
             var mkdown : NSString? = nil
             scanner.scanUpToString(MTPCodeScannerToken, intoString: &mkdown)
-            
+        
             // HTML Section
             if mkdown {
                 scanner.scanString(MTPCodeScannerToken, intoString: nil)
