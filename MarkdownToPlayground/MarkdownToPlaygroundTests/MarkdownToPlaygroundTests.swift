@@ -31,6 +31,49 @@ class MarkdownToPlaygroundTests: XCTestCase {
         XCTAssertTrue(info.others.count == 0, "Unexpected number of other sections \(info.others.count)")
     }
     
+    func testProcessMarkDownOnSectionsSwiftContent() {
+        let mkdown = "this is test and ``` some code ``` Plus some test as well ``` some code ``` and another"
+        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        
+        let info = infoFromContent(content)
+
+        
+        for (key, swift) in info.swift {
+            let swiftRange = NSString(string: swift).rangeOfString("some code")
+            XCTAssertTrue(swiftRange.location != NSNotFound, "Test not found in Swift portion \(key)")
+        }
+    }
+    
+    func testProcessMarkDownOnSectionsHTMLContent() {
+        let mkdown = "this is test ``` some code ``` this is test ``` some code ``` this is test"
+        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        
+        let info = infoFromContent(content)
+        
+        
+        for (key, html) in info.html {
+            let keyRange = NSString(string: html).rangeOfString("5") // Search for the footer
+            if keyRange.location == NSNotFound {
+                let HTMLRange = NSString(string: html).rangeOfString("this is test")
+                XCTAssertTrue(HTMLRange.location != NSNotFound, "Test not found in HTML portion \(key)")
+            }
+        }
+    }
+    
+    func testProcessMarkDownStripSwiftCodeBlock() {
+        let mkdown = "this is test and ```swift some code ```and another"
+        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        
+        let info = infoFromContent(content)
+        
+        
+        for (key, swift) in info.swift {
+            let swiftRange = NSString(string: swift).rangeOfString("swift")
+            XCTAssertTrue(swiftRange.location == NSNotFound, "Swift keyword Shouldn't be present insede code block")
+        }
+    }
+
+    
 }
 
 func infoFromContent(content: Dictionary<String, String>) -> (html: Dictionary<String, String>, swift: Dictionary<String, String>, others: Dictionary<String, String>) {

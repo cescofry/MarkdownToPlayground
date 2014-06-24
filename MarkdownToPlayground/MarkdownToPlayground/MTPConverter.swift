@@ -41,6 +41,11 @@ class MTPConverter {
             
             // Swift
             if code {
+                if code!.hasPrefix(MTPCodeScannerSwiftToken) {
+                    code = code!.substringFromIndex(countElements(MTPCodeScannerSwiftToken))
+                }
+                
+                
                 scanner.scanString(MTPCodeScannerToken, intoString: nil)
                 let key = "section-\(index).swift"
                 result[key] = code!
