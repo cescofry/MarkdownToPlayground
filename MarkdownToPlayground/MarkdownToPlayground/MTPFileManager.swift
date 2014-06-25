@@ -47,7 +47,7 @@ class MTPFileManager {
         var error : NSError? = nil
         var result = NSString.stringWithContentsOfURL(url, encoding: NSUTF8StringEncoding, error: &error)
         if error {
-            NSLog("An error occured while retrieveing markdown at url %@\n %@", url.absoluteString, error!.localizedDescription);
+            println("An error occured while retrieveing markdown at url \(url.absoluteString)\n \(error!.localizedDescription)")
         }
         return result
     }
@@ -92,7 +92,7 @@ class MTPFileManager {
         
         css.writeToFile(cssPath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
         if (error) {
-            NSLog("Error while creating CSS file: %@", error!.localizedDescription);
+            println("Error while creating CSS file: \(error!.localizedDescription)");
         }
         
         return error
@@ -102,7 +102,7 @@ class MTPFileManager {
         var error : NSError? = nil
         let created = NSFileManager.defaultManager().createDirectoryAtPath(self.documentationPath, withIntermediateDirectories: true, attributes: nil, error: &error)
         if !created || error {
-             NSLog("Error while creating playgorund file: %@", error!.localizedDescription);
+             println("Error while creating Playground file: \(error!.localizedDescription)");
             return false
         }
         else {
@@ -145,10 +145,10 @@ class MTPFileManager {
             value.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
             
             if (error) {
-                NSLog("Error while writing to file: %@", error!.localizedDescription);
+                println("Error while writing to file:\(error!.localizedDescription)")
             }
             else {
-                NSLog("%@ file has been written [%@]", fileType, key);
+                println("\(fileType) file has been written [\(key)]")
             }
             
         }
@@ -159,10 +159,10 @@ class MTPFileManager {
         let contentFilePath = self.playgroundPath.stringByAppendingPathComponent("contents.xcplayground")
         playgroundContent.writeToFile(contentFilePath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
         if (error) {
-            NSLog("Error while writing to file: %@", error!.localizedDescription);
+            println("Error while writing to file:\(error!.localizedDescription)")
         }
         else {
-            NSLog("Playgorund Documentation created at %@", self.playgroundPath);
+            println("Playgorund Documentation created at \(self.playgroundPath)")
         }
         
     }

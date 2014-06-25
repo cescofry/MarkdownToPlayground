@@ -16,7 +16,7 @@ let customCSS : String? = env["css"] as? String;
 let help : AnyObject! = env["help"]
 
 if help {
-    //    NSLog("%@", HELPER);
+    println(HELPER)
 }
 else if mkdFile && userPath {
     
@@ -34,8 +34,7 @@ else if mkdFile && userPath {
     fileManager.outputPlaygroundWithContent(contents)
 }
 else {
-    NSLog("Missing markdown file")
-    //  NSLog("", HELPER)
+    println("Missing markdown file\n \(HELPER)")
 }
 
 

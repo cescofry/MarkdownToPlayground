@@ -54,7 +54,7 @@ class MTPConverter {
         }
         
         if result.count == 0 {
-            NSLog("No Code block found!")
+            println("No Code block found!")
             let key = "section-\(index).html"
             var html = MMMarkdown.HTMLStringWithMarkdown(markdown, error: nil)
             if html {

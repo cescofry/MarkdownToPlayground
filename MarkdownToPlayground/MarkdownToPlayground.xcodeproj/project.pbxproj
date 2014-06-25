@@ -503,6 +503,7 @@
 				9B23C5C81958715C00452A2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5E4F07F1942F90000069D2F /* Build configuration list for PBXProject "MarkdownToPlayground" */ = {
 			isa = XCConfigurationList;
