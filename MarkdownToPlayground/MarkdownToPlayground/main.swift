@@ -30,7 +30,8 @@ else if mkdFile && userPath {
         fileManager.customCSSPath = customCSS
     }
     
-    let contents = MTPConverter.htmlFromMarkdown(fileManager.markdown)
+    let converter = MTPConverter(markDown: fileManager.markdown, userPath: userPath)
+    let contents = converter.htmlFromMarkdown()
     fileManager.outputPlaygroundWithContent(contents)
 }
 else {

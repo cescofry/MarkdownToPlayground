@@ -8,6 +8,8 @@
 
 import XCTest
 
+let userPath = ""
+
 class MarkdownToPlaygroundTests: XCTestCase {
     
     override func setUp() {
@@ -22,7 +24,8 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownOnSections() {
         let mkdown = "this is test and ``` some code ``` Plus some test as well"
-        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
+        let content = converter.htmlFromMarkdown()
         
         let info = infoFromContent(content)
         
@@ -33,7 +36,8 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownOnSectionsSwiftContent() {
         let mkdown = "this is test and ``` some code ``` Plus some test as well ``` some code ``` and another"
-        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
+        let content = converter.htmlFromMarkdown()
         
         let info = infoFromContent(content)
 
@@ -46,7 +50,8 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownOnSectionsHTMLContent() {
         let mkdown = "this is test ``` some code ``` this is test ``` some code ``` this is test"
-        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
+        let content = converter.htmlFromMarkdown()
         
         let info = infoFromContent(content)
         
@@ -62,7 +67,22 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownStripSwiftCodeBlock() {
         let mkdown = "this is test and ```swift some code ```and another"
-        let content = MTPConverter.htmlFromMarkdown(mkdown)
+        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
+        let content = converter.htmlFromMarkdown()
+        
+        let info = infoFromContent(content)
+        
+        
+        for (key, swift) in info.swift {
+            let swiftRange = NSString(string: swift).rangeOfString("swift")
+            XCTAssertTrue(swiftRange.location == NSNotFound, "Swift keyword Shouldn't be present insede code block")
+        }
+    }
+    
+    func testPRocessImports() {
+        let mkdown = "#import Person\nthis is test and ```swift some code ```and another"
+        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
+        let content = converter.htmlFromMarkdown()
         
         let info = infoFromContent(content)
         
