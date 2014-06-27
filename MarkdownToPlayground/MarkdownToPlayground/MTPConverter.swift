@@ -7,7 +7,7 @@
 
 import Foundation
 
-let MTPCodeScannerImportToken = "#import "
+let MTPCodeScannerImportToken = "import"
 let MTPCodeScannerToken = "```"
 let MTPCodeScannerSwiftToken = "swift"
 
@@ -50,32 +50,32 @@ class MTPConverter {
     func htmlFromMarkdown() -> Dictionary<String, String> {
         
         // Import clasees
-        /*
+        var imports = Array<String>()
         var lastImportPosition = 0
         while !self.scanner.atEnd {
-            let hasImportClass = scanPattern(MTPCodeScannerImportToken)
             
-            println(">>> \(hasImportClass) : \(self.scanner.scanLocation)")
+            let hasImportClass = scanPattern(MTPCodeScannerImportToken)
             
             if hasImportClass {
                 let importClass = scanPattern("\n")
-                
                 if importClass {
-                    let classText = swiftCodeFromImport(importClass)
-                    addResource(classText, type: "swift")
+                    let classText = swiftCodeFromImport(importClass!)
+                    if classText {
+                        imports.append(classText!)
+                    }
+                    else {
+                        println("Couldn't find file to import at \(importClass!)")
+                    }
                     lastImportPosition = self.scanner.scanLocation
                 }
-                
+            }
+            else {
+                break
             }
         }
         self.scanner.scanLocation = lastImportPosition
-*/
-        
         
         while !self.scanner.atEnd {
-            
-            println(">>>\(self.scanner.scanLocation)")
-            
             var mkdown = scanPattern(MTPCodeScannerToken)
         
             // HTML Section
@@ -110,6 +110,10 @@ class MTPConverter {
         var html = appendFooterToHTML("")
         html = wrapHTML(html)
         addResource(html, type: "html")
+        
+        for text in imports {
+            addResource(text, type: "swift")
+        }
 
         return result
     }
@@ -123,9 +127,11 @@ class MTPConverter {
         return html + FOOTER_HTML + "\n"
     }
     
-    func swiftCodeFromImport(importPath: String?) -> String? {
-        let classPath = self.userPath.stringByAppendingPathComponent(importPath!)
+    func swiftCodeFromImport(importPath: String) -> String? {
+        let classPath = self.userPath.stringByAppendingPathComponent(importPath)
         var error : NSError? = nil
-        return NSString(contentsOfFile: classPath, encoding: NSUTF8StringEncoding, error: &error)
+        
+        let code = NSString(contentsOfFile: classPath, encoding: NSUTF8StringEncoding, error: &error)
+        return code
     }
 }

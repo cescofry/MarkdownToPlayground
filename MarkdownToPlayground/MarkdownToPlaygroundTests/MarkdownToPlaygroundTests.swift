@@ -8,12 +8,16 @@
 
 import XCTest
 
-let userPath = ""
+var userPath : String? = nil
 
 class MarkdownToPlaygroundTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        let info = ZFRProcessInfo.info()
+        
+        userPath = info["PWD"] as? String
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -79,18 +83,40 @@ class MarkdownToPlaygroundTests: XCTestCase {
         }
     }
     
-    func testPRocessImports() {
-        let mkdown = "#import Person\nthis is test and ```swift some code ```and another"
+    func testProcessImports() {
+        let mkdown = "#import MarkdownToPlaygroundTests/TestClass.swift\n Car this is test and ```swift some code ```and another"
         let converter = MTPConverter(markDown: mkdown, userPath: userPath)
         let content = converter.htmlFromMarkdown()
         
         let info = infoFromContent(content)
         
-        
+        var isCodeInIt = false
         for (key, swift) in info.swift {
-            let swiftRange = NSString(string: swift).rangeOfString("swift")
-            XCTAssertTrue(swiftRange.location == NSNotFound, "Swift keyword Shouldn't be present insede code block")
+            let importRange = NSString(string: swift).rangeOfString("let thisIsATest = true")
+             isCodeInIt = isCodeInIt || importRange.location != NSNotFound
         }
+        
+        XCTAssertTrue(isCodeInIt, "code should have been imported")
+    }
+    
+    func testImportsAreLastCodeKeys() {
+        let mkdown = "#import MarkdownToPlaygroundTests/TestClass.swift\n Car this is test and ```swift some code ```and another"
+        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
+        let content = converter.htmlFromMarkdown()
+        
+        let info = infoFromContent(content)
+        
+        var importKey : String?
+        for (key, swift) in info.swift {
+            let importRange = NSString(string: swift).rangeOfString("let thisIsATest = true")
+            let isImportCode = importRange.location != NSNotFound
+            if isImportCode {
+                importKey = key
+            }
+        }
+        
+        let numberRange = NSString(string: importKey).rangeOfString("4")
+        XCTAssertTrue(numberRange.location != NSNotFound, "code should have been placed Last [\(importKey)]")
     }
 
     
