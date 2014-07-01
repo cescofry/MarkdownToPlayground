@@ -8,9 +8,9 @@
 
 import XCTest
 
-var userPath : String? = nil
 
 class MarkdownToPlaygroundTests: XCTestCase {
+    var userPath : String? = nil
     
     override func setUp() {
         super.setUp()

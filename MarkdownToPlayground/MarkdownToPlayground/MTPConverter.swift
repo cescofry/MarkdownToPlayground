@@ -7,8 +7,19 @@
 
 import Foundation
 
-let MTPCodeScannerImportToken = "import"
-let MTPCodeScannerToken = "```"
+extension String {
+    func lenght() -> Integer {
+        return countElements(self)
+    }
+}
+
+struct ScanToken {
+    var start: String?
+    var end: String
+}
+
+let MTPCodeScannerImportToken = ScanToken(start: "import", end: "\n")
+let MTPCodeScannerCodeToken = ScanToken(start: nil, end: "```")
 let MTPCodeScannerSwiftToken = "swift"
 
 class MTPConverter {
@@ -24,17 +35,6 @@ class MTPConverter {
         self.result = Dictionary<String, String>()
     }
     
-    func scanPattern(pattern: String?) -> String? {
-        
-        var result : NSString? = nil
-        self.scanner.scanUpToString(pattern, intoString: &result)
-
-        if result {
-            self.scanner.scanString(pattern, intoString: nil)
-        }
-       return result
-    }
-    
     func addResource(resource: String?, type: String?) {
         let key = currentKey(type)
         self.result[key] = resource
@@ -46,6 +46,30 @@ class MTPConverter {
     }
     
 
+    func matchStringFromToken(token: ScanToken) -> String? {
+        var result : NSString? = nil
+        
+        var startFound = true
+        if token.start {
+            var startText: NSString? = nil
+            self.scanner.scanUpToString(token.start!, intoString: &startText)
+            startFound = startText && startText!.length > 0
+            
+            self.scanner.scanString(token.start!, intoString: nil)
+        }
+        
+        if !startFound {
+            return result
+        }
+        
+        self.scanner.scanUpToString(token.end, intoString: &result)
+        
+        if result {
+            self.scanner.scanString(token.end, intoString: nil)
+        }
+        return result
+    }
+
     
     func htmlFromMarkdown() -> Dictionary<String, String> {
         
@@ -54,20 +78,17 @@ class MTPConverter {
         var lastImportPosition = 0
         while !self.scanner.atEnd {
             
-            let hasImportClass = scanPattern(MTPCodeScannerImportToken)
+            let importClass = matchStringFromToken(MTPCodeScannerImportToken)
             
-            if hasImportClass {
-                let importClass = scanPattern("\n")
-                if importClass {
-                    let classText = swiftCodeFromImport(importClass!)
-                    if classText {
-                        imports.append(classText!)
-                    }
-                    else {
-                        println("Couldn't find file to import at \(importClass!)")
-                    }
-                    lastImportPosition = self.scanner.scanLocation
+            if importClass {
+                let classText = swiftCodeFromImport(importClass!)
+                if classText {
+                    imports.append(classText!)
                 }
+                else {
+                    println("Couldn't find file to import at \(importClass!)")
+                }
+                lastImportPosition = self.scanner.scanLocation
             }
             else {
                 break
@@ -76,7 +97,7 @@ class MTPConverter {
         self.scanner.scanLocation = lastImportPosition
         
         while !self.scanner.atEnd {
-            var mkdown = scanPattern(MTPCodeScannerToken)
+            var mkdown = matchStringFromToken(MTPCodeScannerCodeToken)
         
             // HTML Section
             if mkdown {
@@ -88,7 +109,7 @@ class MTPConverter {
                 }
             }
             
-            var code : NSString? = self.scanPattern(MTPCodeScannerToken)
+            var code : NSString? = matchStringFromToken(MTPCodeScannerCodeToken)
             
             // Swift
             if code {
@@ -132,6 +153,11 @@ class MTPConverter {
         var error : NSError? = nil
         
         let code = NSString(contentsOfFile: classPath, encoding: NSUTF8StringEncoding, error: &error)
+        if error {
+            println("Error: \(error!.debugDescription)")
+            return nil
+        }
+            
         return code
     }
 }
