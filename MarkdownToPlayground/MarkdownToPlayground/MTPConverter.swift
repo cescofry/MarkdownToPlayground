@@ -7,11 +7,6 @@
 
 import Foundation
 
-extension String {
-    func lenght() -> Integer {
-        return countElements(self)
-    }
-}
 
 struct ScanToken {
     var start: String?
@@ -29,9 +24,9 @@ class MTPConverter {
     var scanIndex: NSInteger = 0
     var userPath: String
     
-    init(markDown: String?, userPath: String?) {
-        self.userPath = userPath!
-        self.scanner = NSScanner(string: markDown)
+    init(config: MTPConfig, markdown: String) {
+        self.userPath = config.userPath!
+        self.scanner = NSScanner(string: markdown)
         self.result = Dictionary<String, String>()
     }
     

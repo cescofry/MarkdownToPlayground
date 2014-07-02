@@ -66,15 +66,11 @@ class MTPFileManager {
     }
     }
     
-    init(markdownFile: String?, userPath: String?) {
-        self.userPath = userPath!
-        
-        if markdownFile!.hasPrefix("/") || markdownFile!.hasPrefix("~") {
-            self.filePath = markdownFile!
-        }
-        else {
-            self.filePath = self.userPath.stringByAppendingPathComponent(markdownFile!)
-        }
+    
+    init(config: MTPConfig) {
+        self.userPath = config.userPath!
+        self.customCSSPath = config.customCSS
+        self.filePath = config.markDownFile!
     }
     
     func createCSS() -> NSError? {

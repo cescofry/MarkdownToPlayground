@@ -8,16 +8,13 @@
 
 import XCTest
 
+var config: MTPConfig? = nil
 
 class MarkdownToPlaygroundTests: XCTestCase {
-    var userPath : String? = nil
     
     override func setUp() {
         super.setUp()
-        
-        let info = ZFRProcessInfo.info()
-        
-        userPath = info["PWD"] as? String
+        config = MTPConfig()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -25,11 +22,11 @@ class MarkdownToPlaygroundTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
     
     func testProcessMarkDownOnSections() {
         let mkdown = "this is test and ``` some code ``` Plus some test as well"
-        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
-        let content = converter.htmlFromMarkdown()
+        let content = contentFromMarkdown(mkdown)
         
         let info = infoFromContent(content)
         
@@ -40,8 +37,7 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownOnSectionsSwiftContent() {
         let mkdown = "this is test and ``` some code ``` Plus some test as well ``` some code ``` and another"
-        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
-        let content = converter.htmlFromMarkdown()
+        let content = contentFromMarkdown(mkdown)
         
         let info = infoFromContent(content)
 
@@ -54,8 +50,7 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownOnSectionsHTMLContent() {
         let mkdown = "this is test ``` some code ``` this is test ``` some code ``` this is test"
-        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
-        let content = converter.htmlFromMarkdown()
+        let content = contentFromMarkdown(mkdown)
         
         let info = infoFromContent(content)
         
@@ -71,8 +66,7 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessMarkDownStripSwiftCodeBlock() {
         let mkdown = "this is test and ```swift some code ```and another"
-        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
-        let content = converter.htmlFromMarkdown()
+        let content = contentFromMarkdown(mkdown)
         
         let info = infoFromContent(content)
         
@@ -85,8 +79,7 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testProcessImports() {
         let mkdown = "#import MarkdownToPlaygroundTests/TestClass.swift\n Car this is test and ```swift some code ```and another"
-        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
-        let content = converter.htmlFromMarkdown()
+        let content = contentFromMarkdown(mkdown)
         
         let info = infoFromContent(content)
         
@@ -101,8 +94,7 @@ class MarkdownToPlaygroundTests: XCTestCase {
     
     func testImportsAreLastCodeKeys() {
         let mkdown = "#import MarkdownToPlaygroundTests/TestClass.swift\n Car this is test and ```swift some code ```and another"
-        let converter = MTPConverter(markDown: mkdown, userPath: userPath)
-        let content = converter.htmlFromMarkdown()
+        let content = contentFromMarkdown(mkdown)
         
         let info = infoFromContent(content)
         
@@ -120,6 +112,12 @@ class MarkdownToPlaygroundTests: XCTestCase {
     }
 
     
+}
+
+
+func contentFromMarkdown(markdown : String) -> Dictionary<String, String> {
+    let converter = MTPConverter(config: config!, markdown: markdown)
+    return converter.htmlFromMarkdown()
 }
 
 func infoFromContent(content: Dictionary<String, String>) -> (html: Dictionary<String, String>, swift: Dictionary<String, String>, others: Dictionary<String, String>) {

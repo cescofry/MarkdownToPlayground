@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B23C5A919586EA300452A2A"
+               BlueprintIdentifier = "9B23C5BF1958715C00452A2A"
                BuildableName = "MarkdownToPlaygroundTests.xctest"
                BlueprintName = "MarkdownToPlaygroundTests"
                ReferencedContainer = "container:MarkdownToPlayground.xcodeproj">

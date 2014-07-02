@@ -7,30 +7,17 @@
 
 import Foundation
 
-let env = ZFRProcessInfo.info()
+let config = MTPConfig()
 
-var mkdFile : String? = env["0"] as? String
-var userPath : String? = env["PWD"] as? String;
-let output : String? = env["o"] as? String;
-let customCSS : String? = env["css"] as? String;
-let help : AnyObject! = env["help"]
-
-if help {
+if config.help {
     println(HELPER)
 }
-else if mkdFile && userPath {
+else if config.markDownFile && config.userPath {
+
+    let fileManager = MTPFileManager(config: config)
+
     
-    if output {
-        userPath = output
-    }
-    
-    let fileManager = MTPFileManager(markdownFile: mkdFile!, userPath: userPath!)
-    
-    if (customCSS) {
-        fileManager.customCSSPath = customCSS
-    }
-    
-    let converter = MTPConverter(markDown: fileManager.markdown, userPath: userPath)
+    let converter = MTPConverter(config: config, markdown: fileManager.markdown)
     let contents = converter.htmlFromMarkdown()
     fileManager.outputPlaygroundWithContent(contents)
 }

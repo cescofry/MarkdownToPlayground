@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B105B5B19631E5700BE95BB /* ZFRProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */; };
+		9B105B5D19640DF900BE95BB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B105B5C19640DF900BE95BB /* Config.swift */; };
+		9B105B5E196410DF00BE95BB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B105B5C19640DF900BE95BB /* Config.swift */; };
 		9B23C5C51958715C00452A2A /* MarkdownToPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B23C5C41958715C00452A2A /* MarkdownToPlaygroundTests.swift */; };
 		9B23C5C91958719000452A2A /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F09C1942FA8F00069D2F /* MMDocument.m */; };
 		9B23C5CA1958719000452A2A /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4F09F1942FA8F00069D2F /* MMElement.m */; };
@@ -51,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B105B5C19640DF900BE95BB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9B23C5C01958715C00452A2A /* MarkdownToPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkdownToPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B23C5C31958715C00452A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B23C5C41958715C00452A2A /* MarkdownToPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownToPlaygroundTests.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				A5B4B178194DB83400DCE32D /* Ext */,
+				9B105B5C19640DF900BE95BB /* Config.swift */,
 				A56952BE194DA0FD00CF4B9E /* main.swift */,
 				A56952A9194D985700CF4B9E /* ZFRProcessInfo.swift */,
 				A5B4B179194DB85200DCE32D /* MTPConverter.swift */,
@@ -326,8 +331,10 @@
 			files = (
 				9B23C5CD1958719000452A2A /* MMMarkdown.m in Sources */,
 				9B23C5C91958719000452A2A /* MMDocument.m in Sources */,
+				9B105B5B19631E5700BE95BB /* ZFRProcessInfo.swift in Sources */,
 				9B23C5CF1958719000452A2A /* MMScanner.m in Sources */,
 				9B23C5CC1958719000452A2A /* MMHTMLParser.m in Sources */,
+				9B105B5E196410DF00BE95BB /* Config.swift in Sources */,
 				9B23C5CE1958719000452A2A /* MMParser.m in Sources */,
 				9B23C5D01958719000452A2A /* MMSpanParser.m in Sources */,
 				9B23C5D11958719600452A2A /* MTPConverter.swift in Sources */,
@@ -347,6 +354,7 @@
 				A5B4B17A194DB85200DCE32D /* MTPConverter.swift in Sources */,
 				A55AAFC9194DE00D003F5839 /* MTPFileManager.swift in Sources */,
 				A5E4F0AF1942FA8F00069D2F /* MMGenerator.m in Sources */,
+				9B105B5D19640DF900BE95BB /* Config.swift in Sources */,
 				A5E4F0B21942FA8F00069D2F /* MMParser.m in Sources */,
 				A5E4F0B41942FA8F00069D2F /* MMSpanParser.m in Sources */,
 				A5E4F0AE1942FA8F00069D2F /* MMElement.m in Sources */,
