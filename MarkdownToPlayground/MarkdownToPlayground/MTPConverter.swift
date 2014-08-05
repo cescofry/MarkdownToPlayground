@@ -22,10 +22,16 @@ class MTPConverter {
     var scanner : NSScanner
     var result : Dictionary<String, String>
     var scanIndex: NSInteger = 0
-    var userPath: String
+    var projectPath: String
     
     init(config: MTPConfig, markdown: String) {
-        self.userPath = config.userPath!
+        if (config.projectPath != nil) {
+            self.projectPath = config.projectPath!
+        }
+        else {
+            self.projectPath = config.userPath!
+        }
+        
         self.scanner = NSScanner(string: markdown)
         self.result = Dictionary<String, String>()
     }
@@ -144,7 +150,8 @@ class MTPConverter {
     }
     
     func swiftCodeFromImport(importPath: String) -> String? {
-        let classPath = self.userPath.stringByAppendingPathComponent(importPath)
+        
+        let classPath = self.projectPath.stringByAppendingPathComponent(importPath)
         var error : NSError? = nil
         
         let code = NSString(contentsOfFile: classPath, encoding: NSUTF8StringEncoding, error: &error)

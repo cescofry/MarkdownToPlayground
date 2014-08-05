@@ -106,9 +106,13 @@ class MarkdownToPlaygroundTests: XCTestCase {
                 importKey = key
             }
         }
-        
-        let numberRange = NSString(string: importKey).rangeOfString("4")
-        XCTAssertTrue(numberRange.location != NSNotFound, "code should have been placed Last [\(importKey)]")
+        if importKey != nil {
+            let numberRange = NSString(string: importKey).rangeOfString("4")
+            XCTAssertTrue(numberRange.location != NSNotFound, "code should have been placed Last [\(importKey)]")
+        }
+        else {
+            XCTFail("code should have been placed Last. Key not found")
+        }
     }
 
     
