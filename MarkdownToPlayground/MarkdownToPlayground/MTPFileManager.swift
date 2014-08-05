@@ -15,7 +15,7 @@ class MTPFileManager {
     var userPath: String
     var customCSSPath: String? {
     willSet {
-        if newValue {
+        if newValue != nil {
             
             if newValue!.hasPrefix("/") || newValue!.hasPrefix("~") {
                 self.customCSSPath = newValue!
@@ -46,7 +46,7 @@ class MTPFileManager {
         let url = NSURL.fileURLWithPath(self.filePath)
         var error : NSError? = nil
         var result = NSString.stringWithContentsOfURL(url, encoding: NSUTF8StringEncoding, error: &error)
-        if error {
+        if (error != nil) {
             println("An error occured while retrieveing markdown at url \(url.absoluteString)\n \(error!.localizedDescription)")
         }
         return result
@@ -77,17 +77,17 @@ class MTPFileManager {
         let cssPath = self.documentationPath.stringByAppendingPathComponent(MTPFileManagerCSSFileName)
         var cssFormat : String?
         var error : NSError? = nil
-        if self.customCSSPath {
+        if self.customCSSPath != nil {
             cssFormat = NSString(contentsOfFile: self.customCSSPath, encoding: NSUTF8StringEncoding, error: &error)
             cssFormat = cssFormat!.stringByAppendingString("\n%@\n")
         }
-        if (!cssFormat) {
+        if (cssFormat == nil) {
             cssFormat = CSS_FORMAT
         }
         let css = NSString(format: cssFormat!, CSS_SECTION_FORMAT)
         
         css.writeToFile(cssPath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
-        if (error) {
+        if (error != nil) {
             println("Error while creating CSS file: \(error!.localizedDescription)");
         }
         
@@ -97,18 +97,18 @@ class MTPFileManager {
     func createPlaygroundProject() -> Bool {
         var error : NSError? = nil
         let created = NSFileManager.defaultManager().createDirectoryAtPath(self.documentationPath, withIntermediateDirectories: true, attributes: nil, error: &error)
-        if !created || error {
+        if created == nil || error != nil {
              println("Error while creating Playground file: \(error!.localizedDescription)");
             return false
         }
         else {
             error = createCSS()
-            return !error
+            return error == nil
         }
     }
     
     func outputPlaygroundWithContent(content : Dictionary<String, String>?) {
-        if !content {
+        if content == nil {
             return
         }
         
@@ -140,7 +140,7 @@ class MTPFileManager {
             let filePath = fileRoot.stringByAppendingPathComponent(key)
             value.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
             
-            if (error) {
+            if (error != nil) {
                 println("Error while writing to file:\(error!.localizedDescription)")
             }
             else {
@@ -154,7 +154,7 @@ class MTPFileManager {
         let playgroundContent = NSString(format: PLAYGROUND_FORMAT, orderedLines.componentsJoinedByString("\n"))
         let contentFilePath = self.playgroundPath.stringByAppendingPathComponent("contents.xcplayground")
         playgroundContent.writeToFile(contentFilePath, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
-        if (error) {
+        if (error != nil) {
             println("Error while writing to file:\(error!.localizedDescription)")
         }
         else {

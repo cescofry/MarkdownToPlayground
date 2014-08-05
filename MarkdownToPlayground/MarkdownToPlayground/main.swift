@@ -12,7 +12,7 @@ let config = MTPConfig()
 if config.help {
     println(HELPER)
 }
-else if config.markDownFile && config.userPath {
+else if config.markDownFile != nil && config.userPath != nil {
 
     let fileManager = MTPFileManager(config: config)
 

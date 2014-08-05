@@ -26,7 +26,7 @@ class MTPConfig {
         help = env["help"]
         
         
-        if output {
+        if output != nil {
             userPath = output
         }
         

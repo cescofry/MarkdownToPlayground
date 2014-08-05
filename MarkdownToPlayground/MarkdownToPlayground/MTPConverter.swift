@@ -45,10 +45,10 @@ class MTPConverter {
         var result : NSString? = nil
         
         var startFound = true
-        if token.start {
+        if token.start != nil {
             var startText: NSString? = nil
             self.scanner.scanUpToString(token.start!, intoString: &startText)
-            startFound = startText && startText!.length > 0
+            startFound = startText != nil && startText!.length > 0
             
             self.scanner.scanString(token.start!, intoString: nil)
         }
@@ -59,7 +59,7 @@ class MTPConverter {
         
         self.scanner.scanUpToString(token.end, intoString: &result)
         
-        if result {
+        if (result != nil) {
             self.scanner.scanString(token.end, intoString: nil)
         }
         return result
@@ -75,9 +75,9 @@ class MTPConverter {
             
             let importClass = matchStringFromToken(MTPCodeScannerImportToken)
             
-            if importClass {
+            if importClass != nil {
                 let classText = swiftCodeFromImport(importClass!)
-                if classText {
+                if classText != nil {
                     imports.append(classText!)
                 }
                 else {
@@ -95,7 +95,7 @@ class MTPConverter {
             var mkdown = matchStringFromToken(MTPCodeScannerCodeToken)
         
             // HTML Section
-            if mkdown {
+            if mkdown != nil {
                 var html = MMMarkdown.HTMLStringWithMarkdown(mkdown, error: nil)
                 
                 if html {
@@ -107,7 +107,7 @@ class MTPConverter {
             var code : NSString? = matchStringFromToken(MTPCodeScannerCodeToken)
             
             // Swift
-            if code {
+            if code != nil {
                 if code!.hasPrefix(MTPCodeScannerSwiftToken) {
                     code = code!.substringFromIndex(countElements(MTPCodeScannerSwiftToken))
                 }
@@ -148,7 +148,7 @@ class MTPConverter {
         var error : NSError? = nil
         
         let code = NSString(contentsOfFile: classPath, encoding: NSUTF8StringEncoding, error: &error)
-        if error {
+        if error != nil {
             println("Error: \(error!.debugDescription)")
             return nil
         }

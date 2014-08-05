@@ -10,7 +10,9 @@
 	<string>MarkdownToPlayground</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>87E93C22-9B08-4209-91D0-2A1656629C58</key>
+		<key>8E756A5F3B3088D21C2995D34B375B49B53EB485</key>
+		<string>https://github.com/mdiep/MMMarkdown</string>
+		<key>D8F3BE6F8986F86FE7C451C9A28419A10E33C6B6</key>
 		<string>https://github.com/cescofry/MarkdownToPlayground.git</string>
 		<key>DD002712-59FF-475E-A7F6-507EA2C2AB1C</key>
 		<string>https://github.com/mdiep/MMMarkdown</string>
@@ -19,26 +21,36 @@
 	<string>MarkdownToPlayground/MarkdownToPlayground.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>87E93C22-9B08-4209-91D0-2A1656629C58</key>
+		<key>8E756A5F3B3088D21C2995D34B375B49B53EB485</key>
+		<string>../../../MarkdownToPlayground/MMMarkdown/</string>
+		<key>D8F3BE6F8986F86FE7C451C9A28419A10E33C6B6</key>
 		<string>../../..</string>
 		<key>DD002712-59FF-475E-A7F6-507EA2C2AB1C</key>
-		<string>../../MMMarkdown</string>
+		<string>../../../../../../MMMarkdown</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/cescofry/MarkdownToPlayground.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>87E93C22-9B08-4209-91D0-2A1656629C58</string>
+	<string>D8F3BE6F8986F86FE7C451C9A28419A10E33C6B6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>87E93C22-9B08-4209-91D0-2A1656629C58</string>
+			<string>D8F3BE6F8986F86FE7C451C9A28419A10E33C6B6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MarkdownToPlayground</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8E756A5F3B3088D21C2995D34B375B49B53EB485</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MMMarkdown</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

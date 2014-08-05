@@ -9,6 +9,10 @@ import Foundation
 
 class ZFRProcessInfo {
     
+//    var home : String
+//    var user: String
+//    var pwd: String
+    
     class func allInfo() -> NSDictionary {
         return info(full: true)
     }
@@ -19,7 +23,7 @@ class ZFRProcessInfo {
     
     class func info(#full : Bool) -> NSDictionary {
         let keys = ["HOME", "USER", "PWD"]
-        var environment = NSProcessInfo.processInfo().environment!
+        var environment : NSDictionary = NSProcessInfo.processInfo().environment!
         if (!full) {
             environment = environment.dictionaryWithValuesForKeys(keys)
         }
@@ -41,7 +45,7 @@ class ZFRProcessInfo {
             }
             
             var key : NSString
-            if var mutKey = pendingKey {
+            if var mutKey : NSString = pendingKey {
                 while mutKey.hasPrefix("-") {
                     mutKey = mutKey.substringFromIndex(1)
                 }
