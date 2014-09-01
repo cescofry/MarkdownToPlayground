@@ -41,7 +41,7 @@ class MTPFileManager {
         
         if let url = NSURL.fileURLWithPath(self.filePath) {
             var error : NSError? = nil
-            var result = NSString.stringWithContentsOfURL(url, encoding: NSUTF8StringEncoding, error: &error)
+            result = NSString.stringWithContentsOfURL(url, encoding: NSUTF8StringEncoding, error: &error)
             if (error != nil) {
                 println("An error occured while retrieveing markdown at url \(url.absoluteString)\n \(error!.localizedDescription)")
             }
@@ -92,8 +92,10 @@ class MTPFileManager {
         let created = NSFileManager.defaultManager().createDirectoryAtPath(self.documentationPath, withIntermediateDirectories: true, attributes: nil, error: &error)
         
         
-        if created || error != nil {
-             println("Error while creating Playground file: \(error!.localizedDescription)");
+        if !created {
+            if error != nil {
+                println("Error while creating Playground file: \(error!.localizedDescription)");
+            }
             return false
         }
         else {
