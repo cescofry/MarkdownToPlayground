@@ -22,11 +22,11 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8E756A5F3B3088D21C2995D34B375B49B53EB485</key>
-		<string>../../../MarkdownToPlayground/MMMarkdown/</string>
+		<string>../../../MarkdownToPlayground/MMMarkdown</string>
 		<key>D8F3BE6F8986F86FE7C451C9A28419A10E33C6B6</key>
 		<string>../../..</string>
 		<key>DD002712-59FF-475E-A7F6-507EA2C2AB1C</key>
-		<string>../../../../../../MMMarkdown</string>
+		<string>../../../../MMMarkdown</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/cescofry/MarkdownToPlayground.git</string>
@@ -48,7 +48,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8E756A5F3B3088D21C2995D34B375B49B53EB485</string>
+			<string>DD002712-59FF-475E-A7F6-507EA2C2AB1C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MMMarkdown</string>
 		</dict>
@@ -56,7 +56,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DD002712-59FF-475E-A7F6-507EA2C2AB1C</string>
+			<string>8E756A5F3B3088D21C2995D34B375B49B53EB485</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MMMarkdown</string>
 		</dict>
