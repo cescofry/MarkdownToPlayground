@@ -13,22 +13,27 @@ class ZFRProcessInfo {
 //    var user: String
 //    var pwd: String
     
-    class func allInfo() -> NSDictionary {
+    class func allInfo() -> [String: String] {
         return info(full: true)
     }
     
-    class func info() -> NSDictionary {
+    class func info() -> [String: String] {
         return info(full: false)
     }
     
-    class func info(#full : Bool) -> NSDictionary {
+    class func info(#full : Bool) -> [String: String] {
         let keys = ["HOME", "USER", "PWD"]
-        var environment : NSDictionary = NSProcessInfo.processInfo().environment
-        if (!full) {
-            environment = environment.dictionaryWithValuesForKeys(keys)
-        }
+        var rawEnviroment: [NSObject : AnyObject] = NSProcessInfo.processInfo().environment
+        var environment = [String: String]()
+        for (key, value) in rawEnviroment {
+            let stringKey = key as String
         
-        var result = environment.mutableCopy() as NSMutableDictionary
+            if (!full && !contains(keys, stringKey)) {
+                continue
+            }
+            
+            environment[stringKey] = (value as String)
+        }
         
         var pendingKey : String?;
         var unkeyedIndex  = 0
@@ -56,10 +61,10 @@ class ZFRProcessInfo {
                 key = "\(unkeyedIndex)"
                 unkeyedIndex++
             }
-            result[key] = arg
+            environment[key as String] = (arg as String)
         }
         
-        return result.copy() as NSDictionary
+        return environment
 
     }
 }

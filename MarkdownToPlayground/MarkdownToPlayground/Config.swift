@@ -21,10 +21,10 @@ class MTPConfig {
         
         let env = ZFRProcessInfo.info()
         
-        markDownFile = env["0"] as? String
-        userPath = env["PWD"] as? String
-        output = env["o"] as? String
-        customCSS = env["css"] as? String
+        markDownFile = env["0"]
+        userPath = env["PWD"]
+        output = env["o"]
+        customCSS = env["css"]
         help = env["help"]
         
         predicate = NSPredicate(format: "self CONTAINS %@", argumentArray: [".xcodeproj"])
