@@ -9,7 +9,7 @@ import Foundation
 
 let config = MTPConfig()
 
-if config.help {
+if config.help != nil {
     println(HELPER)
 }
 else if config.markDownFile != nil && config.userPath != nil {

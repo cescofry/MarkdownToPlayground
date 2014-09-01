@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MarkdownToPlaygroundTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>9B23C5BF1958715C00452A2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A5E4F0831942F90000069D2F</key>
 		<dict>
 			<key>primary</key>

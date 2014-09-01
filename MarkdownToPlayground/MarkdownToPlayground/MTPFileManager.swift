@@ -28,42 +28,35 @@ class MTPFileManager {
     }
     
     class var regEx : NSRegularExpression {
-        get {
-            var error : NSError? = nil
-            let regExString : NSString! = "-(\\d+)\\."
-            return NSRegularExpression.regularExpressionWithPattern(regExString, options: nil, error: &error)
-    }
+        let regExString : NSString! = "-(\\d+)\\."
+        return NSRegularExpression.regularExpressionWithPattern(regExString, options: nil, error: nil)!
     }
     
     var filename: String? {
-    get {
         return self.filePath.lastPathComponent.stringByDeletingPathExtension
-    }
     }
     
     var markdown: String {
-    get {
-        let url = NSURL.fileURLWithPath(self.filePath)
-        var error : NSError? = nil
-        var result = NSString.stringWithContentsOfURL(url, encoding: NSUTF8StringEncoding, error: &error)
-        if (error != nil) {
-            println("An error occured while retrieveing markdown at url \(url.absoluteString)\n \(error!.localizedDescription)")
+        var result = ""
+        
+        if let url = NSURL.fileURLWithPath(self.filePath) {
+            var error : NSError? = nil
+            var result = NSString.stringWithContentsOfURL(url, encoding: NSUTF8StringEncoding, error: &error)
+            if (error != nil) {
+                println("An error occured while retrieveing markdown at url \(url.absoluteString)\n \(error!.localizedDescription)")
+            }
+            
         }
         return result
     }
-    }
     
     var playgroundPath: String {
-    get {
         // filePath/../fileName.playground
-        return self.userPath.stringByAppendingPathComponent(self.filename!).stringByAppendingPathExtension("playground")
-    }
+        return self.userPath.stringByAppendingPathComponent(self.filename!).stringByAppendingPathExtension("playground")!
     }
     
     var documentationPath: String {
-    get {
         return self.playgroundPath.stringByAppendingPathComponent("Documentation")
-    }
     }
     
     
@@ -78,7 +71,7 @@ class MTPFileManager {
         var cssFormat : String?
         var error : NSError? = nil
         if self.customCSSPath != nil {
-            cssFormat = NSString(contentsOfFile: self.customCSSPath, encoding: NSUTF8StringEncoding, error: &error)
+            cssFormat = NSString(contentsOfFile: self.customCSSPath!, encoding: NSUTF8StringEncoding, error: &error)
             cssFormat = cssFormat!.stringByAppendingString("\n%@\n")
         }
         if (cssFormat == nil) {
@@ -97,7 +90,9 @@ class MTPFileManager {
     func createPlaygroundProject() -> Bool {
         var error : NSError? = nil
         let created = NSFileManager.defaultManager().createDirectoryAtPath(self.documentationPath, withIntermediateDirectories: true, attributes: nil, error: &error)
-        if created == nil || error != nil {
+        
+        
+        if created || error != nil {
              println("Error while creating Playground file: \(error!.localizedDescription)");
             return false
         }

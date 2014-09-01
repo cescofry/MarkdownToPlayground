@@ -47,18 +47,18 @@ class MTPConfig {
         let fileManager = NSFileManager.defaultManager()
         
         
-        let files : NSArray = fileManager.contentsOfDirectoryAtPath(path, error: nil)
+        let files : NSArray? = fileManager.contentsOfDirectoryAtPath(path, error: nil)
         if (files == nil) {
             return nil;
         }
         else {
-            let projs = files.filteredArrayUsingPredicate(predicate)
+            let projs = files!.filteredArrayUsingPredicate(predicate)
             if projs.count > 0 {
                 let fullprojectPath = projs[0] as NSString
                 return path
             }
             else {
-                for file in files {
+                for file in files! {
                     var isDir : ObjCBool = ObjCBool(0)
                     if (fileManager.fileExistsAtPath(file as String, isDirectory:&isDir) && isDir.boolValue) {
                         let dirPath = path.stringByAppendingPathComponent(file as String)

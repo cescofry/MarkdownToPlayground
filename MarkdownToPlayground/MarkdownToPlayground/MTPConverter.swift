@@ -104,7 +104,7 @@ class MTPConverter {
             if mkdown != nil {
                 var html = MMMarkdown.HTMLStringWithMarkdown(mkdown, error: nil)
                 
-                if html {
+                if (html != nil) {
                     html = wrapHTML(html)
                     addResource(html, type: "html")
                 }

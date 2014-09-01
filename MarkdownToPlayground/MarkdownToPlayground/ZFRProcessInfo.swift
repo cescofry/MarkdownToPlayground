@@ -23,7 +23,7 @@ class ZFRProcessInfo {
     
     class func info(#full : Bool) -> NSDictionary {
         let keys = ["HOME", "USER", "PWD"]
-        var environment : NSDictionary = NSProcessInfo.processInfo().environment!
+        var environment : NSDictionary = NSProcessInfo.processInfo().environment
         if (!full) {
             environment = environment.dictionaryWithValuesForKeys(keys)
         }
@@ -32,7 +32,7 @@ class ZFRProcessInfo {
         
         var pendingKey : String?;
         var unkeyedIndex  = 0
-        let args = NSProcessInfo.processInfo().arguments!
+        let args = NSProcessInfo.processInfo().arguments
         for  (index, value : AnyObject) in enumerate(args){
             let arg = value as NSString
             if arg.hasPrefix("-") {
