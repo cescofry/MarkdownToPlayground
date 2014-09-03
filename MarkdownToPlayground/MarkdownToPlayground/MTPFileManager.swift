@@ -162,11 +162,12 @@ class MTPFileManager {
     
     func intFromName(name: NSString) -> Int? {
         
-        let match = MTPFileManager.regEx.firstMatchInString(name, options: nil, range: NSMakeRange(0, name.length))
-        let range = match.rangeAtIndex(1)
-        let num = name.substringWithRange(range)
-        
-        return num.toInt()
+        if let match = MTPFileManager.regEx.firstMatchInString(name, options: nil, range: NSMakeRange(0, name.length)) {
+            let range = match.rangeAtIndex(1)
+            let num = name.substringWithRange(range)
+            return num.toInt()
+        }
+        return nil
     }
     
     func sortLines(lines: Array<String>) -> NSArray {
