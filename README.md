@@ -6,9 +6,9 @@ This is a simple tool that will convert your markdown documentation to a playgor
 It is super easy to use you just create your markdown file or take it from a github README file like this one and feed it to tool `./mkdtoplg file.md`. The tool will parse all the markdown to a well formatted Playground file, dividing all the HTML from the swift code.
 
 ### Build&Run
-In order to run the tool from XCode you need to include on `Arguments Passed on Launch`:
+In order to run the tool from XCode the Run scheme needs to include on `Arguments Passed on Launch`:
 - the absolute path of a .md file with no options
-- the absolute folder path of where the output playground is expected to be craeted with the -o option
+- the absolute folder path of where the output playground is expected to be created with the -o option
 
 ### Swift Code Example
 
